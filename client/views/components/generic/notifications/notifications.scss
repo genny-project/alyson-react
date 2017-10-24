@@ -1,0 +1,68 @@
+@import '../../../../styles/colors';
+
+.notifications {
+
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	cursor: pointer;
+
+	i {
+		font-size: 28px;
+		padding: 5px;
+	}
+
+	&:not(:last-child){
+		margin-right: 10px;
+	}
+
+	.number {
+		position: absolute;
+		z-index: 2;
+
+		top: 0;
+		right: 0;
+
+		width: 16px;
+		height: 16px;
+		border-radius: 8px;
+		background-color: $error;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		span {
+			color: white;
+			font-size: 12px;
+		}
+	}
+
+	.notifications-dropdown {
+		position: absolute;
+		top: 60px;
+		right: 0;
+		list-style-type: none;
+		background: #DDD;
+		border-radius: 5px;
+		padding: 10px 0 20px;
+		margin: 0;
+		width: 150px;
+		z-index: 100;
+		
+		&:before {
+			content: "";
+			position: absolute;
+			top: -5px;
+			left: 50%;
+			transform: rotate(45deg);
+
+			background: #DDD;
+			width: 10px;
+			height: 10px;
+		 }
+	}
+}
+
+	

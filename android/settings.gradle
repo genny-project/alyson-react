@@ -1,0 +1,3 @@
+rootProject.name = 'nativeAndWeb'
+
+include ':app'
