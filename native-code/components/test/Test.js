@@ -8,10 +8,11 @@ class Test extends Component {
       <View style={{width:100, height:100 }}>
         <Text> Test Component from react native </Text>
         {console.log("##################>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>", store.getState().layouts)}
-        <Text>  {store.getState().layouts.current} </Text>
+        <Text>  Data from backend {store.getState().layouts.current} </Text>
       </View>
     )
   }
 }
 
 export default Test;
+
