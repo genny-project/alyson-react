@@ -1,4 +1,4 @@
-import { ALIAS } from 'constants';
+import { ALIAS } from '../constants';
 
 const initialState = {
     data: {},

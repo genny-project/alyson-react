@@ -1,4 +1,4 @@
-import { BASE_ENTITY, BASE_ENTITY_DATA, ATTRIBUTE } from 'constants';
+import { BASE_ENTITY, BASE_ENTITY_DATA, ATTRIBUTE } from '../constants';
 import { grabValue } from './utils.reducer';
 
 const initialState = {

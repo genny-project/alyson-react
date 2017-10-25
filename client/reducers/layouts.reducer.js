@@ -1,6 +1,6 @@
 import layoutsIncluded from '../layouts-included';
-import { LAYOUT_CHANGE } from 'constants';
-import config from 'config/config';
+import { LAYOUT_CHANGE } from '../constants';
+import config from '../../client/config/config';
 
 const initialState = {
     current: config.backendLayouts ? null : "layout1",

@@ -1,4 +1,4 @@
-import { NOTIFICATION as NOTIFICATION_DATA } from 'constants';
+import { NOTIFICATION as NOTIFICATION_DATA } from '../../../constants';
 
 export const Notification = message => ({
   type: NOTIFICATION_DATA,
@@ -8,3 +8,5 @@ export const Notification = message => ({
 export default {
   Notification,
 };
+
+

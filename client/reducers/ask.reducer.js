@@ -1,4 +1,4 @@
-import { ASK } from 'constants';
+import { ASK } from '../constants';
 import { grabValue } from './utils.reducer';
 
 const initialState = {

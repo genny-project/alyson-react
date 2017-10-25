@@ -1,5 +1,5 @@
-import { REDIRECT } from 'constants';
-import history from 'views/history.js';
+import { REDIRECT } from '../constants';
+// import history from '../views/history.js';
 
 const initialState = {
     lastRedirect: null,
@@ -24,3 +24,5 @@ export default function reducer( state = initialState, action ) {
       return state;
   }
 }
+
+

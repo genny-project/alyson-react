@@ -7,12 +7,13 @@ import {
   View
 } from 'react-native';
 
+import {Test} from './native-code/components';
 
 export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-       <Text> Alyson Genny Project</Text>
+       <Text> <Test/> </Text>
       </View>
     );
   }

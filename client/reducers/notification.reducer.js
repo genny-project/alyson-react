@@ -1,4 +1,4 @@
-import { NOTIFICATION } from 'constants';
+import { NOTIFICATION } from '../constants';
 
 const initialState = {
     data: {},
