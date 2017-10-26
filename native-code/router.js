@@ -1,19 +1,20 @@
-import {Stacknavigator} from 'react-navigation';
-import {Home} from './screen';
-import {Keycloak} from './screen';
+import React from "react";
+import { StackNavigator } from "react-navigation";
+// import { Home } from "./screen";
+// import { Keycloak } from "./screen";
+import Home from './screen/Home';
+import Keycloak from './screen/Keycloak';
 
-
-const signedIn = Stacknavigator({
+const SignedIn = StackNavigator({
   Home: {
     screen: Home,
     navigationOptions: {
       tabBarLabel: "Home"
     }
   }
-
 });
 
-const signedOut = Stacknavigator({
+const SignedOut = StackNavigator({
   Keycloak: {
     screen: Keycloak,
     navigationOptions: {
@@ -22,18 +23,17 @@ const signedOut = Stacknavigator({
   }
 });
 
-
-const createRootNavigator = (signedIn= false)=> {
+const createRootNavigator = (signedIn = false) => {
   return StackNavigator(
     {
       SignedIn: {
-        screen: SignedIn,
+        screen: signedIn,
         navigationOptions: {
           gesturesEnabled: false
         }
       },
       SignedOut: {
-        screen: SignedOut,
+        screen: signedOut,
         navigationOptions: {
           gesturesEnabled: false
         }
@@ -45,8 +45,6 @@ const createRootNavigator = (signedIn= false)=> {
       initialRouteName: signedIn ? "SignedIn" : "SignedOut"
     }
   );
-}
+};
 
-
-
-export {signedIn, signedOut,createRootNavigator};
+export { SignedIn, SignedOut, createRootNavigator };
