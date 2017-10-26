@@ -1,10 +1,7 @@
 import React from "react";
 import { StackNavigator } from "react-navigation";
-// import { Home } from "./screen";
-// import { Keycloak } from "./screen";
 import Home from './screen/Home';
 import Keycloak from './screen/Keycloak';
-
 const SignedIn = StackNavigator({
   Home: {
     screen: Home,
@@ -33,7 +30,7 @@ const createRootNavigator = (signedIn = false) => {
         }
       },
       SignedOut: {
-        screen: signedOut,
+        screen: SignedOut,
         navigationOptions: {
           gesturesEnabled: false
         }
