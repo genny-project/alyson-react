@@ -21,9 +21,11 @@ import { Text, View, WebView, Button, Platform} from 'react-native'
   })
 
   render() {
+    const source = {uri: 'http://localhost:3000'}
     return (
         <WebView
-          source={{ uri: 'http://localhost:3000' }}
+          source={source}
+          scalesPageToFit={false}
           /> 
     );
   }
