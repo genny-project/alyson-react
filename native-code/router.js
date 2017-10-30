@@ -1,10 +1,12 @@
 import React from "react";
 import { StackNavigator } from "react-navigation";
-import Home from './screen/Home';
-import Keycloak from './screen/Keycloak';
+// import Home from './screen/Home';
+// import Keycloak from './screen/Keycloak';
+import {Test} from './components/test';
+
 const SignedIn = StackNavigator({
   Home: {
-    screen: Home,
+    screen: Test,
     navigationOptions: {
       tabBarLabel: "Home"
     }
@@ -13,7 +15,7 @@ const SignedIn = StackNavigator({
 
 const SignedOut = StackNavigator({
   Keycloak: {
-    screen: Keycloak,
+    screen: Test,
     navigationOptions: {
       tabBarLabel: "Keycloak Login/Signup"
     }

@@ -7,7 +7,7 @@ class Home extends Component {
       <View>
         <Text> Home Component Testing </Text>
       </View>
-    )
+    );
   }
 }
 
