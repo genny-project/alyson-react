@@ -5,7 +5,7 @@ class Home extends Component {
   render() {
     return (
       <View>
-        <Text> Home Component Testing </Text>
+        <Text> Home Component  </Text>
       </View>
     );
   }
