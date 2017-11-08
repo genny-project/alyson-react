@@ -4,7 +4,7 @@ import Keycloak from './screen/Keycloak';
 
 const SignedIn = StackNavigator({
   Home: {
-    screen: Keycloak,
+    screen: Home,
     navigationOptions: {
       tabBarLabel: "Keycloak"
     }

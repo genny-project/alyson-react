@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { Text, View, WebView, Button, Platform} from 'react-native'
+import { Text, View, WebView, Button, Platform, TouchableHighlight} from 'react-native'
+import Home from './Home';
+import {onSignOut} from '../auth';
 
 
  class Keycloak extends Component {
@@ -14,11 +16,29 @@ import { Text, View, WebView, Button, Platform} from 'react-native'
           const route = (Platform.OS === 'ios') ? 'iOSScanner' : 'AndroidScanner'
           const { navigate } = navigation
           navigate(route)
+          // onSignOut().then(()=> console.log("User signed out"));
         }
         }
       />
     )
-  })
+  });
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Keycloak Login',
+    headerTintColor: 'orange',
+    headerStyle: { backgroundColor: 'white' },
+    headerRight: (
+      <Button
+      title="Logout"
+        onPress={() => {
+          return onSignOut().then(() => navigation.navigate("Home"));
+        }
+        }
+      />
+    )
+  });
+
+
+
 
   render() {
     const source = {uri: 'http://localhost:3000'}

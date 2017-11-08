@@ -19,5 +19,3 @@ export const isSignedIn = () => {
       .catch(err => reject(err));
   });
 };
-
-
