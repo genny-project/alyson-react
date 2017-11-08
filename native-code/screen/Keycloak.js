@@ -22,6 +22,8 @@ import {onSignOut} from '../auth';
       />
     )
   });
+
+  
   static navigationOptions = ({ navigation }) => ({
     title: 'Keycloak Login',
     headerTintColor: 'orange',
