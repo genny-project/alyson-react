@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import { Text, View, WebView, Button, Platform, TouchableHighlight} from 'react-native'
 import Home from './Home';
 import {onSignOut} from '../auth';
-
-
+import {NavigationActions} from 'react-navigation';
  class Keycloak extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Keycloak Login',
@@ -14,15 +13,14 @@ import {onSignOut} from '../auth';
         title='Home'
         onPress={() => {
           const route = (Platform.OS === 'ios') ? 'iOSScanner' : 'AndroidScanner'
-          const { navigate } = navigation
-          navigate(route)
-          // onSignOut().then(()=> console.log("User signed out"));
+          // const { navigate } = navigation
+          // navigate(route);
+          onSignOut().then(() => console.log( "User Signed Out" ));
         }
         }
       />
     )
   });
-
   
   static navigationOptions = ({ navigation }) => ({
     title: 'Keycloak Login',
@@ -32,15 +30,12 @@ import {onSignOut} from '../auth';
       <Button
       title="Logout"
         onPress={() => {
-          return onSignOut().then(() => navigation.navigate("Home"));
+          onSignOut().then(()=> navigation.navigate("Home"));
         }
         }
       />
     )
   });
-
-
-
 
   render() {
     const source = {uri: 'http://localhost:3000'}
