@@ -4,8 +4,9 @@ import Home from './Home';
 import {onSignOut} from '../auth';
 import {NavigationActions} from 'react-navigation';
  class Keycloak extends Component {
+
   static navigationOptions = ({ navigation }) => ({
-    title: 'Keycloak Login',
+    title: '',
     headerTintColor: 'orange',
     headerStyle: { backgroundColor: 'white' },
     headerLeft: (
@@ -21,9 +22,9 @@ import {NavigationActions} from 'react-navigation';
       />
     )
   });
-  
+
   static navigationOptions = ({ navigation }) => ({
-    title: 'Keycloak Login',
+    title: '',
     headerTintColor: 'orange',
     headerStyle: { backgroundColor: 'white' },
     headerRight: (
@@ -42,8 +43,9 @@ import {NavigationActions} from 'react-navigation';
     return (
         <WebView
           source={source}
+          allowUrlRedirect={true}
           scalesPageToFit={false}
-          /> 
+          />
     );
   }
 }
