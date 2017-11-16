@@ -2,7 +2,7 @@ import './gennyTreeView.scss';
 import React, { Component } from 'react';
 import { TreeView } from '../../';
 import { object, array } from 'prop-types';
-import store from 'views/store';
+import store from 'client/views/store';
 import { GennyBridge } from 'utils/genny';
 import { BaseEntity } from '../../../../utils/genny/';
 class GennyTreeView extends Component {

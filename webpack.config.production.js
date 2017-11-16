@@ -4,7 +4,7 @@ const webpack = require( 'webpack' );
 
 module.exports = {
   context: path.resolve( __dirname, './client' ),
-  entry: path.resolve( __dirname, './client/views/Root.jsx' ),
+  entry: path.resolve( __dirname, './client/views/Root.js' ),
   output: {
     path: path.resolve( __dirname, './build' ),
     filename: 'js/bundle.min.js',
@@ -19,7 +19,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /node-modules/,
         use: 'babel-loader',
       },
@@ -78,6 +78,6 @@ module.exports = {
       constants: path.resolve( __dirname, './client/constants' ),
       reducers: path.resolve( __dirname, './client/reducers' )
     },
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.js'],
   }
 };

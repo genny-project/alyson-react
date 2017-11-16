@@ -1,1 +1,1 @@
-export { default as GennyComponent } from './GennyComponent.jsx';
+export { default as GennyComponent } from './GennyComponent.js';

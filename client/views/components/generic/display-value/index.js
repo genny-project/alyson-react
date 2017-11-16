@@ -1,4 +1,4 @@
 export {
   default
 }
-from './DisplayValue.jsx';
+from './DisplayValue.js';

@@ -3,7 +3,7 @@ import 'rxjs/add/observable/dom/ajax';
 import config from 'config/config';
 import { Vertx, MessageHandler } from './vertx';
 import events from './vertx-events';
-import store from 'views/store';
+import store from 'client/views/store';
 import { ATTRIBUTE } from './../../constants';
 
 class GennyBridge {

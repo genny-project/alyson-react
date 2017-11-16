@@ -1,1 +1,1 @@
-export {default} from './IconSmall.jsx';
+export {default} from './IconSmall.js';

@@ -1,8 +1,8 @@
 import './home.scss';
 import React, { Component } from 'react';
-import {  } from 'views/components/generic';
+import {  } from 'client/views/components/generic';
 // import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
-import { Card, Form, Label, Input, Table } from 'views/components/generic';
+import { Card, Form, Label, Input, Table } from 'client/views/components/generic';
 
 class Home extends Component {
 

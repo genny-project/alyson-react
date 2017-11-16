@@ -1,1 +1,1 @@
-export { default } from './SubmitStatusIcon.jsx';
+export { default } from './SubmitStatusIcon.js';

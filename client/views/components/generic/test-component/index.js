@@ -1,1 +1,1 @@
-export { default } from './TestComponent.jsx';
+export { default } from './TestComponent.js';

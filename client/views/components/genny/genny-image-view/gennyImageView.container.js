@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import GennyImageView from './GennyImageView.jsx';
+import GennyImageView from './GennyImageView.js';
 
 function mapStateToProps(state) {
   return { baseEntity: state.baseEntity }

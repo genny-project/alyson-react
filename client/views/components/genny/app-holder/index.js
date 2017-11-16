@@ -1,1 +1,1 @@
-export { default } from './AppHolder.jsx';
+export { default } from './AppHolder.js';

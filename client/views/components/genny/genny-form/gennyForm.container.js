@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import GennyForm from './GennyForm.jsx';
+import GennyForm from './GennyForm.js';
 
 function mapStateToProps(state) {
   return {

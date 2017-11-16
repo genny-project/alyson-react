@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { GennyBridge } from 'utils/genny';
-import store from 'views/store';
+import store from 'client/views/store';
 
 class GennyComponent extends Component {
 

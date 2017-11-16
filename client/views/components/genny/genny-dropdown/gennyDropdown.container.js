@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import GennyDropdown from './GennyDropdown.jsx';
+import GennyDropdown from './GennyDropdown.js';
 
 function mapStateToProps(state) {
   return { openedDropdown: state.app.openedDropdown }

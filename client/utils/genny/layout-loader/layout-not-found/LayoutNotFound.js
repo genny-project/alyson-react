@@ -1,4 +1,4 @@
-import './layoutNotFound.scss';
+// import './layoutNotFound.scss';
 import React, { Component } from 'react';
 
 class LayoutNotFound extends Component {

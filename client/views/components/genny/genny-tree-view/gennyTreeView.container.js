@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import GennyTreeView from './GennyTreeView.jsx';
+import GennyTreeView from './GennyTreeView.js';
 
 function mapStateToProps(state) {
   return { baseEntity: state.baseEntity }

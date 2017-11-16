@@ -263,9 +263,9 @@ babel-generator@^6.18.0, babel-generator@^6.24.1, babel-generator@^6.26.0:
     source-map "^0.5.6"
     trim-right "^1.0.1"
 
-babel-helper-builder-react-jsx@^6.24.1:
+babel-helper-builder-react.js@^6.24.1:
   version "6.26.0"
-  resolved "https://registry.yarnpkg.com/babel-helper-builder-react-jsx/-/babel-helper-builder-react-jsx-6.26.0.tgz#39ff8313b75c8b65dceff1f31d383e0ff2a408a0"
+  resolved "https://registry.yarnpkg.com/babel-helper-builder-react.js/-/babel-helper-builder-react.js-6.26.0.tgz#39ff8313b75c8b65dceff1f31d383e0ff2a408a0"
   dependencies:
     babel-runtime "^6.26.0"
     babel-types "^6.26.0"
@@ -421,9 +421,9 @@ babel-plugin-syntax-flow@^6.18.0, babel-plugin-syntax-flow@^6.5.0, babel-plugin-
   version "6.18.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-syntax-flow/-/babel-plugin-syntax-flow-6.18.0.tgz#4c3ab20a2af26aa20cd25995c398c4eb70310c8d"
 
-babel-plugin-syntax-jsx@^6.5.0, babel-plugin-syntax-jsx@^6.8.0:
+babel-plugin-syntax.js@^6.5.0, babel-plugin-syntax.js@^6.8.0:
   version "6.18.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-syntax-jsx/-/babel-plugin-syntax-jsx-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
+  resolved "https://registry.yarnpkg.com/babel-plugin-syntax.js/-/babel-plugin-syntax.js-6.18.0.tgz#0af32a9a6e13ca7a3fd5069e62d7b0f58d0d8946"
 
 babel-plugin-syntax-object-rest-spread@^6.13.0, babel-plugin-syntax-object-rest-spread@^6.8.0:
   version "6.13.0"
@@ -619,19 +619,19 @@ babel-plugin-transform-react-display-name@^6.5.0, babel-plugin-transform-react-d
   dependencies:
     babel-runtime "^6.22.0"
 
-babel-plugin-transform-react-jsx-source@^6.5.0:
+babel-plugin-transform-react.js-source@^6.5.0:
   version "6.22.0"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-jsx-source/-/babel-plugin-transform-react-jsx-source-6.22.0.tgz#66ac12153f5cd2d17b3c19268f4bf0197f44ecd6"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react.js-source/-/babel-plugin-transform-react.js-source-6.22.0.tgz#66ac12153f5cd2d17b3c19268f4bf0197f44ecd6"
   dependencies:
-    babel-plugin-syntax-jsx "^6.8.0"
+    babel-plugin-syntax.js "^6.8.0"
     babel-runtime "^6.22.0"
 
-babel-plugin-transform-react-jsx@^6.5.0, babel-plugin-transform-react-jsx@^6.8.0:
+babel-plugin-transform-react.js@^6.5.0, babel-plugin-transform-react.js@^6.8.0:
   version "6.24.1"
-  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react-jsx/-/babel-plugin-transform-react-jsx-6.24.1.tgz#840a028e7df460dfc3a2d29f0c0d91f6376e66a3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-transform-react.js/-/babel-plugin-transform-react.js-6.24.1.tgz#840a028e7df460dfc3a2d29f0c0d91f6376e66a3"
   dependencies:
-    babel-helper-builder-react-jsx "^6.24.1"
-    babel-plugin-syntax-jsx "^6.8.0"
+    babel-helper-builder-react.js "^6.24.1"
+    babel-plugin-syntax.js "^6.8.0"
     babel-runtime "^6.22.0"
 
 babel-plugin-transform-regenerator@^6.5.0:
@@ -668,7 +668,7 @@ babel-preset-fbjs@^2.1.2, babel-preset-fbjs@^2.1.4:
     babel-plugin-check-es2015-constants "^6.8.0"
     babel-plugin-syntax-class-properties "^6.8.0"
     babel-plugin-syntax-flow "^6.8.0"
-    babel-plugin-syntax-jsx "^6.8.0"
+    babel-plugin-syntax.js "^6.8.0"
     babel-plugin-syntax-object-rest-spread "^6.8.0"
     babel-plugin-syntax-trailing-function-commas "^6.8.0"
     babel-plugin-transform-class-properties "^6.8.0"
@@ -692,7 +692,7 @@ babel-preset-fbjs@^2.1.2, babel-preset-fbjs@^2.1.4:
     babel-plugin-transform-flow-strip-types "^6.8.0"
     babel-plugin-transform-object-rest-spread "^6.8.0"
     babel-plugin-transform-react-display-name "^6.8.0"
-    babel-plugin-transform-react-jsx "^6.8.0"
+    babel-plugin-transform-react.js "^6.8.0"
 
 babel-preset-jest@^21.2.0:
   version "21.2.0"
@@ -711,7 +711,7 @@ babel-preset-react-native@4.0.0:
     babel-plugin-syntax-class-properties "^6.5.0"
     babel-plugin-syntax-dynamic-import "^6.18.0"
     babel-plugin-syntax-flow "^6.5.0"
-    babel-plugin-syntax-jsx "^6.5.0"
+    babel-plugin-syntax.js "^6.5.0"
     babel-plugin-syntax-trailing-function-commas "^6.5.0"
     babel-plugin-transform-class-properties "^6.5.0"
     babel-plugin-transform-es2015-arrow-functions "^6.5.0"
@@ -731,8 +731,8 @@ babel-preset-react-native@4.0.0:
     babel-plugin-transform-object-assign "^6.5.0"
     babel-plugin-transform-object-rest-spread "^6.5.0"
     babel-plugin-transform-react-display-name "^6.5.0"
-    babel-plugin-transform-react-jsx "^6.5.0"
-    babel-plugin-transform-react-jsx-source "^6.5.0"
+    babel-plugin-transform-react.js "^6.5.0"
+    babel-plugin-transform-react.js-source "^6.5.0"
     babel-plugin-transform-regenerator "^6.5.0"
     babel-template "^6.24.1"
     react-transform-hmr "^1.0.4"
@@ -746,7 +746,7 @@ babel-preset-react-native@^2.0.0:
     babel-plugin-syntax-async-functions "^6.5.0"
     babel-plugin-syntax-class-properties "^6.5.0"
     babel-plugin-syntax-flow "^6.5.0"
-    babel-plugin-syntax-jsx "^6.5.0"
+    babel-plugin-syntax.js "^6.5.0"
     babel-plugin-syntax-trailing-function-commas "^6.5.0"
     babel-plugin-transform-class-properties "^6.5.0"
     babel-plugin-transform-es2015-arrow-functions "^6.5.0"
@@ -766,8 +766,8 @@ babel-preset-react-native@^2.0.0:
     babel-plugin-transform-object-assign "^6.5.0"
     babel-plugin-transform-object-rest-spread "^6.5.0"
     babel-plugin-transform-react-display-name "^6.5.0"
-    babel-plugin-transform-react-jsx "^6.5.0"
-    babel-plugin-transform-react-jsx-source "^6.5.0"
+    babel-plugin-transform-react.js "^6.5.0"
+    babel-plugin-transform-react.js-source "^6.5.0"
     babel-plugin-transform-regenerator "^6.5.0"
     react-transform-hmr "^1.0.4"
 

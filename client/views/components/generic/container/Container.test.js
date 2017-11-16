@@ -1,5 +1,5 @@
 import React from 'react';
-import Container from './Container.jsx';
+import Container from './Container.js';
 import { shallow } from 'enzyme';
 
 

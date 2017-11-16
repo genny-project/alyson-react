@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Home from './Home.jsx';
+import Home from './Home.js';
 
 function mapDispatchToProps( dispatch ) {
   return bindActionCreators({}, dispatch );

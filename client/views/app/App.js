@@ -1,7 +1,7 @@
-import './app.scss';
-import config from 'config/config';
+// import './app.scss';
+import config from 'client/config/config';
 import React, { Component } from 'react';
-import Routes from './Routes.jsx';
+import Routes from './Routes.js';
 import { func, object } from 'prop-types';
 import { Keycloak, KeycloakLogin, KeycloakLogout, KeycloakLoggedIn, KeycloakAccount } from '@genny-project/keycloak-react';
 import keycloakAdapter from 'keycloak-js';

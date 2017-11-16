@@ -3,6 +3,8 @@ import { Text, View, WebView, Button, Platform, TouchableHighlight} from 'react-
 import Home from './Home';
 import {onSignOut} from '../auth';
 import {NavigationActions} from 'react-navigation';
+import { App } from 'client/views/app';
+
  class Keycloak extends Component {
   static navigationOptions = ({ navigation }) => ({
     title: 'Keycloak Login',
@@ -38,13 +40,7 @@ import {NavigationActions} from 'react-navigation';
   });
 
   render() {
-    const source = {uri: 'http://localhost:3000'}
-    return (
-        <WebView
-          source={source}
-          scalesPageToFit={false}
-          /> 
-    );
+    return <App />;
   }
 }
 

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import App from './App.jsx';
-import { appStart } from 'views/actions/app.actions';
-import { authLoggedIn } from 'views/actions/keycloak.actions';
+import App from './App.js';
+import { appStart } from 'client/views/actions/app.actions';
+import { authLoggedIn } from 'client/views/actions/keycloak.actions';
 import { bindActionCreators } from 'redux';
 
 const mapStateToProps = state => ({

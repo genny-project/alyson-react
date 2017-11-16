@@ -1,1 +1,1 @@
-export { default } from './NotificationItem.jsx';
+export { default } from './NotificationItem.js';

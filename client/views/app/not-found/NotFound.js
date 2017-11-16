@@ -1,4 +1,4 @@
-import './not-found.scss';
+// import './not-found.scss';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
