@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import {
 	Home,
 	NotFound,
-} from 'views';
+} from '../../views';
 
 
 class Routes extends Component {
