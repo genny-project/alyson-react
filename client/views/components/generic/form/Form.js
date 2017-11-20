@@ -1,4 +1,4 @@
-import './form.scss';
+// import './form.scss';
 import React, { Component } from 'react';
 import { Input, ProgressBar, Button, IconSmall } from '../';
 import { string, array, object} from 'prop-types';

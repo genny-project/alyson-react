@@ -1,4 +1,4 @@
-import './bucketView.scss';
+// import './bucketView.scss';
 import React, { Component } from 'react';
 import { array, object, any } from 'prop-types';
 

@@ -1,10 +1,10 @@
-import './gennyTreeView.scss';
+// import './gennyTreeView.scss';
 import React, { Component } from 'react';
 import { TreeView } from '../../';
 import { object, array } from 'prop-types';
 import store from 'client/views/store';
 import { GennyBridge } from 'utils/genny';
-import { BaseEntity } from '../../../../utils/genny/';
+import { BaseEntity } from 'client/utils/genny/';
 class GennyTreeView extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +14,6 @@ class GennyTreeView extends Component {
     items: array,
     baseEntity: object
   };
-
 
   state = {
     tree: {}

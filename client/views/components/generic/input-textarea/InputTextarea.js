@@ -1,4 +1,4 @@
-import './inputTextarea.scss';
+// import './inputTextarea.scss';
 import React, { Component } from 'react';
 import { string, bool } from 'prop-types';
 

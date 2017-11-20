@@ -1,4 +1,4 @@
-import './template.scss';
+// import './template.scss';
 import React, { Component } from 'react';
 import { string, object, any } from 'prop-types';
 import {  } from '../';

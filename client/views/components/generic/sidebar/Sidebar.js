@@ -1,4 +1,4 @@
-import './sidebar.scss';
+// import './sidebar.scss';
 import React, { Component } from 'react';
 import { GennyImageView } from '../../../components'
 import { object, bool, string, any } from 'prop-types';

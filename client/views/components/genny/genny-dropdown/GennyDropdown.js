@@ -1,4 +1,4 @@
-import './gennyDropdown.scss';
+// import './gennyDropdown.scss';
 import React, { Component } from 'react';
 import { Dropdown } from '../../';
 import { string, any } from 'prop-types';

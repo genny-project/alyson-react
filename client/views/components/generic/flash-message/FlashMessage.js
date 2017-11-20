@@ -1,6 +1,6 @@
 import React from 'react';
 import { string } from 'prop-types';
-import './flashmessage.scss';
+// import './flashmessage.scss';
 
 FlashMessage.propType = {
   messageType: string,

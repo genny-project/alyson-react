@@ -1,5 +1,7 @@
 import { AsyncStorage } from "react-native";
 
+export const TEST = 'Test Constant for import statement';
+
 export const USER_KEY = "loggedin";
 
 export const onSignIn = () => AsyncStorage.setItem(USER_KEY, "true");
@@ -19,3 +21,6 @@ export const isSignedIn = () => {
       .catch(err => reject(err));
   });
 };
+
+
+

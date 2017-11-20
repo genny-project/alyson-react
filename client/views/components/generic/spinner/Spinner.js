@@ -1,4 +1,4 @@
-import './spinner.scss';
+// import './spinner.scss';
 import React, { Component } from 'react';
 import Loader from 'halogen/MoonLoader';
 

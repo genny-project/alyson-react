@@ -1,4 +1,4 @@
-import './appHolder.scss';
+// import './appHolder.scss';
 import React, { Component } from 'react';
 import { Sidebar, Header, Footer, IconSmall } from '../../';
 import { bool, any } from 'prop-types';

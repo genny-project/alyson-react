@@ -1,5 +1,5 @@
 import React from 'react';
-import './iconcustom.scss';
+// import './iconcustom.scss';
 import { string } from 'prop-types';
 
 

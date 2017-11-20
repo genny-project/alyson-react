@@ -1,4 +1,5 @@
-import { Grid, Repeater, ComponentCollection } from '@genny-project/layson';
+
+import { Grid, Repeater, ComponentCollection } from 'layson';
 import { BucketView, Sidebar, ImageView, TreeView, GennyTreeView, GennyImageView, GennyNotification, Header, Footer, Card, AppHolder, GennyForm, GennyTable } from 'client/views/components';
 
 export default new ComponentCollection({

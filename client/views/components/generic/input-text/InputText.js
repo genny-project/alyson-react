@@ -1,8 +1,8 @@
-import './inputText.scss';
+// import './inputText.scss';
 import React, { Component } from 'react';
 import { string, bool, array, object } from 'prop-types';
 import { Label, SubmitStatusIcon } from '../';
-import { GennyBridge } from 'utils/genny';
+import { GennyBridge } from 'client/utils/genny';
 
 class InputText extends Component {
   static defaultProps = {

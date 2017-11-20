@@ -1,4 +1,4 @@
-import './input.scss';
+// import './input.scss';
 import React, { Component } from 'react';
 import { string } from 'prop-types';
 import { InputDropdown, InputEmail, InputPassword, InputPhone, InputText, InputTextarea, InputMasked } from '../';

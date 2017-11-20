@@ -18,12 +18,6 @@ module.exports = {
   },
   devtool: 'eval',
   module: {
-    rules: [
-      {
-        test: /\.js?$/,
-        exclude: /node-modules/,
-        use: 'babel-loader',
-      },
       {
         test: /\.json$/,
         use: 'json-loader',
@@ -51,7 +45,7 @@ module.exports = {
       styles: path.resolve( __dirname, './client/styles' ),
       utils: path.resolve( __dirname, './client/utils' ),
       constants: path.resolve( __dirname, './client/constants' ),
-      reducers: path.resolve( __dirname, './client/reducers' )
+      reducers: path.resolve( __dirname, './client/reducers' ),
     },
     extensions: ['.js', '.js'],
   },

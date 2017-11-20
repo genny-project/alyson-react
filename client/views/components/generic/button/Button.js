@@ -1,4 +1,4 @@
-import './button.scss';
+// import './button.scss';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { string, any, func } from 'prop-types';

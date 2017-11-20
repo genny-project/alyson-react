@@ -22,6 +22,7 @@
     "@genny-project/keycloak-react": "^1.0.4",
     "@genny-project/layson": "^1.0.3",
     "babel-preset-stage-0": "^6.24.1",
+    "child_process": "^1.0.2",
     "downshift": "^1.17.0",
     "halogen": "^0.2.0",
     "keycloak-js": "^3.3.0",

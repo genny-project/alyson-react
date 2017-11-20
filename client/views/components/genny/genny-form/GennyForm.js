@@ -1,4 +1,4 @@
-import './gennyForm.scss';
+// import './gennyForm.scss';
 import React, { Component } from 'react';
 import { Form } from '../../';
 import { object, array } from 'prop-types';

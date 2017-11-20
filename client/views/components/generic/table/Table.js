@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { string, array, object } from 'prop-types';
 import ReactTable from 'react-table';
-import 'react-table/react-table.css';
+// import 'react-table/react-table.css';
 
 class Table extends Component {
 

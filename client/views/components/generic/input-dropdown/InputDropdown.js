@@ -1,4 +1,4 @@
-import './inputDropdown.scss';
+// import './inputDropdown.scss';
 import React from 'react';
 import { GennyComponent } from '../genny-component';
 import { string, bool, array } from 'prop-types';

@@ -1,4 +1,4 @@
-import './gennyTable.scss';
+// import './gennyTable.scss';
 import React, { Component } from 'react';
 import { Table } from '../../';
 import { object, array } from 'prop-types';

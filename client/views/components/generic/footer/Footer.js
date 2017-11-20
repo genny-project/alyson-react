@@ -1,4 +1,4 @@
-import './footer.scss';
+// import './footer.scss';
 import React, { Component }  from 'react';
 import { string, any, object } from 'prop-types';
 import { ImageView } from '../';

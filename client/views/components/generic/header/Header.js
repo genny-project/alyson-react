@@ -1,9 +1,9 @@
-import './header.scss';
+// import './header.scss';
 import React, { Component } from 'react';
 import { string, object } from 'prop-types';
 import { IconSmall, Profile, Label, ImageView, Dropdown } from '../';
 import { GennyNotification } from '../../genny';
-import { GennyBridge } from 'utils/genny';
+import { GennyBridge } from 'client/utils/genny';
 
 class Header extends Component {
   static defaultProps = {

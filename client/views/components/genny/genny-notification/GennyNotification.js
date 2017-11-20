@@ -1,4 +1,4 @@
-import './gennyNotification.scss';
+// import './gennyNotification.scss';
 import React, { Component } from 'react';
 import { Notifications } from '../../../components';
 import { string, any, object } from 'prop-types';

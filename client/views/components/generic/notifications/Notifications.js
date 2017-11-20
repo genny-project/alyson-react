@@ -1,4 +1,4 @@
-import './notifications.scss';
+// import './notifications.scss';
 import React, { Component } from 'react';
 import { string, int, object } from 'prop-types';
 import { IconSmall, Dropdown, NotificationItem } from '../';

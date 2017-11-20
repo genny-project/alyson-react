@@ -1,4 +1,4 @@
-import './card.scss';
+// import './card.scss';
 import React, { Component } from 'react';
 import { string, array, object } from 'prop-types';
 import { Button, IconSmall, ProgressBar } from '../';

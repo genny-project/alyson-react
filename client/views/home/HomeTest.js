@@ -1,4 +1,4 @@
-import './home.scss';
+// import './home.scss';
 import React, { Component } from 'react';
 import {  } from 'client/views/components/generic';
 // import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe'
