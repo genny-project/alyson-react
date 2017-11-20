@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { ImageView } from '../../';
 import { object, array, any, string } from 'prop-types';
 import store from 'client/views/store';
-import { GennyBridge } from 'utils/genny';
+import { GennyBridge } from 'client/utils/genny';
 import { BaseEntity } from '../../../../utils/genny/';
 
 class GennyImageView extends Component {

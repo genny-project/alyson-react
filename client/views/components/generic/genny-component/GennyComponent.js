@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { GennyBridge } from 'utils/genny';
+import { GennyBridge } from 'client/utils/genny';
 import store from 'client/views/store';
 
 class GennyComponent extends Component {

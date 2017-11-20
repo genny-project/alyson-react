@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { TreeView } from '../../';
 import { object, array } from 'prop-types';
 import store from 'client/views/store';
-import { GennyBridge } from 'utils/genny';
+import { GennyBridge } from 'client/utils/genny';
 import { BaseEntity } from 'client/utils/genny/';
 class GennyTreeView extends Component {
   constructor(props) {
