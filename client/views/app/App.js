@@ -3,8 +3,9 @@ import config from 'client/config/config';
 import React, { Component } from 'react';
 import Routes from './Routes.js';
 import { func, object } from 'prop-types';
-// import { Keycloak, KeycloakLogin, KeycloakLogout, KeycloakLoggedIn, KeycloakAccount } from '@genny-project/keycloak-react';
+import { Keycloak, KeycloakLogin, KeycloakLogout, KeycloakLoggedIn, KeycloakAccount } from 'client/keycloak-react';
 import keycloakAdapter from 'keycloak-js';
+
 
 class App extends Component {
   static propTypes = {
@@ -47,6 +48,7 @@ class App extends Component {
         </div>
       );
     }
+    
 
     /* Render nothing if we haven't yet received the keycloak config */
     if (!keycloakConfig) {

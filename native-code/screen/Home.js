@@ -1,14 +1,24 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
-
+import { Text, View , StyleSheet} from 'react-native'
+import {HTMLView} from 'react-native-htmlview';
+import {Test} from '../components/test';
+import App from 'client/views/app';
 class Home extends Component {
   render() {
+    console.log(App);
     return (
-      <View>
-        <Text> Home Component  </Text>
+      <View style={style}>
+      <App/>
       </View>
     );
   }
 }
+
+
+const style = StyleSheet.create({
+  marginTop: 50,
+  marginLeft: 10,
+  flex: 1
+})
 
 export default Home;

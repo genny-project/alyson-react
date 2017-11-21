@@ -40,7 +40,7 @@ import { App } from 'client/views/app';
   });
 
   render() {
-    return <App />;
+    return   <App />;
   }
 }
 
