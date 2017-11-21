@@ -1,6 +1,6 @@
 import { StackNavigator } from "react-navigation";
 import Home from './screen/Home';
-import Keycloak from './screen/Keycloak';
+import {Keycloak} from './screen';
 
 const SignedIn = StackNavigator({
   Home: {
