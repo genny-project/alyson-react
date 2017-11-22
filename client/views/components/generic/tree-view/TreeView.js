@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { object, array, func } from 'prop-types';
 import { IconSmall, SubmitStatusIcon } from '../';
 import {BaseEntity} from '../../../../utils/genny';
-// import { BaseEntity } from '../../../../utils/genny/vertx-events/baseEntity.events.incoming';
 import { from } from 'rxjs/observable/from';
 
 class TreeView extends Component {
