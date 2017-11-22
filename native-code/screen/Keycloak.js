@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { Text, View, WebView, Button, Platform, TouchableHighlight} from 'react-native'
 import Home from './Home';
-import {onSignOut} from '../auth';
-import {NavigationActions} from 'react-navigation';
+import { onSignOut } from '../auth';
+import { NavigationActions } from 'react-navigation';
+import GeoFencing from '../GeoFencing';
 
 class Keycloak extends Component {
 
@@ -40,6 +41,13 @@ class Keycloak extends Component {
     state = {
         initialPosition: 'unknown',
         lastPosition: 'unknown',
+        polygons: [[ // TODO: remove
+            [-37.800254, 144.962483],
+            [-37.801098, 144.969902],
+            [-37.805201, 144.969215],
+            [-37.806591, 144.962778],
+            [-37.800254, 144.962483],
+        ]],
     }
 
     componentDidMount() {
@@ -52,7 +60,17 @@ class Keycloak extends Component {
                     var lastPosition = JSON.stringify(position);
                     this.setState({lastPosition});
 
-                    if(this.webView) {
+                    console.log(position.coords);
+                    if(position && position.coords) {
+
+                        this.state.polygons.forEach(polygon => {
+                            GeoFencing.containsLocation([position.coords.latitude, position.coords.longitude], polygon)
+                            .then(() => console.log('point is within polygon'))
+                            .catch(() => console.log('point is NOT within polygon'))
+                        });
+                    }
+
+                    if(this.webView && false) {
 
                         console.log("sending new position: ");
                         console.log(lastPosition);
@@ -91,6 +109,10 @@ class Keycloak extends Component {
 
     onMessage = (message) => {
         this.state.currentMessage = message;
+        console.log("Received message: ");
+        if(message.nativeEvent) {
+            console.log(message.nativeEvent.data);
+        }
     }
 
     render() {
@@ -114,11 +136,12 @@ class Keycloak extends Component {
         return (
             <WebView
                 ref={x => {this.webView = x}}
-                source={{ uri: 'http://localhost:5000' }}
+                source={{ uri: 'http://localhost:3000' }}
                 allowUrlRedirect={true}
                 scalesPageToFit={false}
                 injectedJavaScript={patchPostMessageJsCode}
                 onMessage={this.onMessage}
+                bounces={false}
             />
         );
     }
