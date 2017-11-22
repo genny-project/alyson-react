@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Provider} from 'react-redux';
-import {store} from '../../client/views/store';
+import store from '../../client/views/store';
 import App from '../../App';
+import {View, Text} from 'react-native';
 
 class RootApp extends Component {
 constructor(props){
@@ -11,7 +12,7 @@ constructor(props){
 render (){
   return (
     <Provider store={store}>
-      <App/>
+    <App/>
     </Provider>
   );
 }
