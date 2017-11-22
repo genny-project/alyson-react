@@ -3,6 +3,7 @@ import { Text, View , StyleSheet} from 'react-native'
 import {HTMLView} from 'react-native-htmlview';
 import {Test} from '../components/test';
 import App from 'client/views/app';
+
 class Home extends Component {
   render() {
     console.log(App);
@@ -22,3 +23,4 @@ const style = StyleSheet.create({
 })
 
 export default Home;
+
