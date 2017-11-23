@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { object, any } from 'prop-types';
-import { Div } from '../../../views/components/native-components';
+// import { Div } from '../../../views/components/native-components';
 
 
 class KeycloakLoggedOut extends Component {

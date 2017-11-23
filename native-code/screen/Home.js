@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import { Text, View , StyleSheet} from 'react-native'
 import {HTMLView} from 'react-native-htmlview';
 import {Test} from '../components/test';
-import App from 'client/views/app';
+// import App from 'client/views/app';
 
 class Home extends Component {
   render() {
     console.log(App);
     return (
       <View style={style}>
-      <App/>
+      <Text> Home directory </Text>
       </View>
     );
   }

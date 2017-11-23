@@ -24,8 +24,6 @@
     "child_process": "^1.0.2",
     "downshift": "^1.17.0",
     "halogen": "^0.2.0",
-    "keycloak-js": "^3.3.0",
-    "layson": "1.0.5",
     "path": "^0.12.7",
     "postcss-uncss": "^0.15.0",
     "query-string": "^4.3.4",

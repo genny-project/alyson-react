@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { any, number } from 'prop-types';
 import GridRow from './row';
-import {Div} from '../../../../views/components/native-components';
+// import {Div} from '../../../../views/components/native-components';
 
 class Grid extends Component {
   static propTypes = {

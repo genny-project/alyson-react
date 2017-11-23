@@ -1,7 +1,7 @@
 // import './grid.scss';
 import React, { Component } from 'react';
 import { array, number, any } from 'prop-types';
-import {Div} from '../../../../views/components/native-components';
+// import {Div} from '../../../../views/components/native-components';
 
 class GridCol extends Component {
 

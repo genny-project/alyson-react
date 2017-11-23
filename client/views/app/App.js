@@ -5,6 +5,7 @@ import Routes from './Routes.js';
 import { func, object } from 'prop-types';
 import { Keycloak, KeycloakLogin, KeycloakLogout, KeycloakLoggedIn, KeycloakAccount } from 'client/utils/keycloak-react';
 import keycloakAdapter from 'keycloak-js';
+// import {Div} from '../components/native-components/';
 
 
 class App extends Component {
@@ -59,7 +60,7 @@ class App extends Component {
 
     return (
       <Keycloak config={keycloakConfig} adapter={keycloakAdapter} defaultRedirectUri={window.location.origin} onAuthSuccess={this.handleAuthSuccess}>
-        <div className='app'>
+        <Div>
           {keycloak.logout && <KeycloakLogout />}
           {keycloak.accounts && <KeycloakAccount force />}
           <KeycloakLoggedIn>
@@ -69,7 +70,7 @@ class App extends Component {
               </content>
             </main>
           </KeycloakLoggedIn>
-        </div>
+        </Div>
         <KeycloakLogin />
       </Keycloak>
     );

@@ -3,7 +3,7 @@ import { object } from 'prop-types';
 import { ComponentCollection } from '../component-collection';
 import mustache from 'mustache';
 import hash from 'hash-sum';
-import {Div} from '../../../../views/components/native-components';
+// import {Div} from '../../../../views/components/native-components';
 
 /* Define all the built in html tags */
 const htmlTags = [ 'a', 'abbr', 'address', 'area', 'article', 'aside', 'audio',
