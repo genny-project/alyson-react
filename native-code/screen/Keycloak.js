@@ -188,10 +188,12 @@ class Keycloak extends Component {
 
         const patchPostMessageJsCode = '(' + String(patchPostMessageFunction) + ')();';
 
+        console.log("loading url: https://v2.channel40.com.au");
+
         return (
             <WebView
                 ref={x => {this.webView = x}}
-                source={{ uri: 'http://localhost:3000' }}
+                source={{ uri: 'https://v2.channel40.com.au' }}
                 allowUrlRedirect={true}
                 scalesPageToFit={false}
                 injectedJavaScript={patchPostMessageJsCode}
