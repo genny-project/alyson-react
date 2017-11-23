@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { number, any } from 'prop-types';
+import {Div} from '../../../../views/components/native-components';
 
 class Repeater extends Component {
   static propTypes = {
@@ -16,9 +17,9 @@ class Repeater extends Component {
     }
 
     return (
-      <div>
+      <Div>
         {list}
-      </div>
+      </Div>
     );
   }
 }

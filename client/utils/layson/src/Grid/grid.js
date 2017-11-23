@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { any, number } from 'prop-types';
 import GridRow from './row';
+import {Div} from '../../../../views/components/native-components';
 
 class Grid extends Component {
   static propTypes = {
@@ -32,7 +33,7 @@ class Grid extends Component {
   render() {
     const { rows, cols } = this.props;
     return (
-      <div>{this.generateGrid(rows, cols)}</div>
+      <Div>{this.generateGrid(rows, cols)}</Div>
     );
   }
 }
