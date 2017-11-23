@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { object, any } from 'prop-types';
+import { Div } from '../../../views/components/native-components';
+
 
 class KeycloakLoggedOut extends Component {
   static contextTypes = {
@@ -16,9 +18,9 @@ class KeycloakLoggedOut extends Component {
     }
 
     return (
-      <div>
+      <Div>
         {this.props.children}
-      </div>
+      </Div>
     );
   }
 }
