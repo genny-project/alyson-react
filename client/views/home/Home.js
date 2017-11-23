@@ -5,7 +5,6 @@ import React, { Component } from 'react';
 import { LayoutLoader } from 'client/utils/genny/layout-loader';
 class Home extends Component {
   componentDidMount() {
-
     // document.getElementById('mounting-preview').remove();
   }
   render() {

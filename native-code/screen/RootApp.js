@@ -10,9 +10,10 @@ constructor(props){
 }
 
 render (){
+  console.log(store);
   return (
     <Provider store={store}>
-    <App/>
+      <App/>
     </Provider>
   );
 }
