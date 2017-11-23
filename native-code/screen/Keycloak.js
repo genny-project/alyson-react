@@ -41,16 +41,11 @@ class Keycloak extends Component {
     state = {
         initialPosition: 'unknown',
         lastPosition: 'unknown',
-        polygons: [[ // TODO: remove
-            [-37.800254, 144.962483],
-            [-37.801098, 144.969902],
-            [-37.805201, 144.969215],
-            [-37.806591, 144.962778],
-            [-37.800254, 144.962483],
-        ]],
+        destinations: [],
+        fakeGPSCounter: 0,
     }
 
-    componentDidMount() {
+    watchGPS() {
 
         setInterval(() => {
 
@@ -60,58 +55,118 @@ class Keycloak extends Component {
                     var lastPosition = JSON.stringify(position);
                     this.setState({lastPosition});
 
-                    console.log(position.coords);
                     if(position && position.coords) {
 
-                        this.state.polygons.forEach(polygon => {
-                            GeoFencing.containsLocation([position.coords.latitude, position.coords.longitude], polygon)
-                            .then(() => console.log('point is within polygon'))
-                            .catch(() => console.log('point is NOT within polygon'))
-                        });
-                    }
+                        this.state.destinations.forEach(destination => {
 
-                    if(this.webView && false) {
+                            console.log(this.state.fakeGPSCounter);
+                            console.log(destination);
 
-                        console.log("sending new position: ");
-                        console.log(lastPosition);
+                            GeoFencing.containsLocation({
+                                x: position.coords.latitude,
+                                y: position.coords.lontitude,
+                            }, destination.center, destination.radius)
+                            .then(() => {
 
-                        this.webView.injectJavaScript(
-                        `(function () {
-
-                            let event = new CustomEvent('native-message', {
-                                detail: {
-                                    "lastPosition": ${lastPosition}
+                                if(destination.status == "out" && this.state.fakeGPSCounter == 5) {
+                                    this.onEnterGPSCircle(destination)
                                 }
                             })
+                            .catch(() => {
 
-                            document.dispatchEvent(event);
+                                if(destination.status == "in" && this.state.fakeGPSCounter == 2) {
+                                    this.onExitGPSCircle(destination)
+                                }
+                                else if(destination.status == "out" && this.state.fakeGPSCounter == 5) {
+                                    this.onEnterGPSCircle(destination)
+                                }
 
-                        })(window)`);
+                                this.state.fakeGPSCounter += 1;
+                            })
+                        });
                     }
-
                 },
                 (error) => alert(error.message),
                 {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
             );
-
         }, 5000);
+    }
 
-        //
-        // this.watchID = navigator.geolocation.watchPosition((position) => {
-        //
-        //
-        // });
+    onExitGPSCircle = (destination) => {
+
+        console.log("did exit destination: ");
+        console.log(destination);
+        this.state.destinations.filter(x => x.latitude == destination.latitude && x.longitude == destination.longitude)[0].status = "out";
+        this.sendDataToWeb("GEOFENCE", {
+            event_id: "GEOFENCE_EXIT",
+            code: destination.exitCode,
+        })
+    }
+
+    onEnterGPSCircle = (destination) => {
+
+        console.log("did enter destination: ");
+        console.log(destination);
+        this.state.destinations.filter(x => x.latitude == destination.latitude && x.longitude == destination.longitude)[0].status = "in";
+        this.sendDataToWeb("GEOFENCE", {
+            event_id: "GEOFENCE_ENTRY",
+            code: destination.enterCode,
+        })}
+
+    sendDataToWeb = (event_id, data) => {
+
+        if(this.webView) {
+
+            this.webView.injectJavaScript(
+            `(function () {
+
+                let event = new CustomEvent('native-message', {
+                    detail: {
+                        "id": "${event_id}",
+                        "data": ${JSON.stringify(data)}
+                    }
+                });
+
+                document.dispatchEvent(event);
+
+            })(window)`);
+        }
+    }
+
+    componentDidMount() {
+        this.watchGPS()
     }
 
     componentWillUnmount() {
         navigator.geolocation.clearWatch(this.watchID);
     }
 
+    handleMessage = (message) => {
+
+        console.log("Received [" + message.id + "]")
+        switch (message.id) {
+            case "GEOFENCE":
+            this.state.destinations = [{
+                ...message.data,
+                status: "in" // default: in the area
+            }];
+            break;
+            default: console.log("Unknown data [" + message.id + "]")
+        }
+    }
+
     onMessage = (message) => {
+
         this.state.currentMessage = message;
-        console.log("Received message: ");
-        if(message.nativeEvent) {
-            console.log(message.nativeEvent.data);
+        if(message.nativeEvent && message.nativeEvent.data) {
+
+            try {
+                let data = JSON.parse(message.nativeEvent.data);
+                if(data) this.handleMessage(data);
+
+            } catch (e) {
+                return false;
+            }
         }
     }
 
