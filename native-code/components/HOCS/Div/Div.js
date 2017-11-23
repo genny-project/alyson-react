@@ -4,7 +4,7 @@ import React from 'react'
   return (
 
     <View> 
-    <Text>  Div Component</Text>
+    <Text>  Div Component </Text>
     </View>
   )
 }
