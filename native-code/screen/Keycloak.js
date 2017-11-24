@@ -3,7 +3,7 @@ import { Text, View, WebView, Button, Platform, TouchableHighlight } from 'react
 import Home from './Home';
 import {onSignOut} from '../auth';
 import {NavigationActions} from 'react-navigation';
-import { App } from 'client/views/app';
+// import { App } from 'client/views/app';
 
  class Keycloak extends Component {
   static navigationOptions = ({ navigation }) => ({
@@ -40,9 +40,7 @@ import { App } from 'client/views/app';
   });
 
   render() {
-    return   <App />;
+    return   <View> <Text> Keycloak text test </Text></View>;
   }
 }
-
-
 export default Keycloak;

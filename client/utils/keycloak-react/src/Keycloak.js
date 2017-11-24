@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { object, func, any, string } from 'prop-types';
 import KeycloakAuth from './KeycloakAuth';
-// import {Div} from 'client/views/components/native-components';
 
 
 
@@ -68,9 +67,9 @@ class Keycloak extends Component {
     }
 
     return (
-      <Div>
-        {this.props.children}
-      </Div>
+     <div>
+     {this.props.children}
+     </div>
     );
   }
 }

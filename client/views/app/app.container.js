@@ -12,4 +12,6 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators({ appStart, authLoggedIn }, dispatch);
 }
 
+
 export default connect(mapStateToProps, mapDispatchToProps, null, { pure: false })(App);
+

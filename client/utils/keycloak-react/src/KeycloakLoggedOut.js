@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { object, any } from 'prop-types';
-// import { Div } from '../../../views/components/native-components';
 
 
 class KeycloakLoggedOut extends Component {
@@ -18,9 +17,9 @@ class KeycloakLoggedOut extends Component {
     }
 
     return (
-      <Div>
+      <div>
         {this.props.children}
-      </Div>
+      </div>
     );
   }
 }

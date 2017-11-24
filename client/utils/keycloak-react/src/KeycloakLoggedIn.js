@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { object, any, string } from 'prop-types';
-// import {Div} from '../../../views/components/native-components';
 
 class KeycloakLoggedIn extends Component {
   static contextTypes = {
@@ -23,11 +22,7 @@ class KeycloakLoggedIn extends Component {
       return null;
     }
 
-    return (
-      <Div>
-        {this.props.children}
-      </Div>
-    );
+    return <div>{this.props.children}</div>;
   }
 }
 
