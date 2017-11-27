@@ -19,7 +19,6 @@
     "deploy-prod": "webpack --config webpack.config.production.js; node aws-deploy-prod.js"
   },
   "dependencies": {
-    "@genny-project/keycloak-react": "^1.0.4",
     "babel-preset-stage-0": "^6.24.1",
     "child_process": "^1.0.2",
     "downshift": "^1.17.0",
