@@ -2,8 +2,6 @@
 import React, { Component } from 'react';
 import { any, number } from 'prop-types';
 import GridCol from './col';
-// import { Div } from '../../../../views/components/native-components';
-
 
 class GridRow extends Component {
   static propTypes = {
@@ -44,11 +42,7 @@ class GridRow extends Component {
   render() {
     const { cols } = this.props;
 
-    return (
-        <Div>
-          {this.layoutCols(cols)}
-        </Div>
-    );
+    return <div className="row">{this.layoutCols(cols)}</div>;
   }
 }
 

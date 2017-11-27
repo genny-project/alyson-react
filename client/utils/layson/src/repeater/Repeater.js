@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { number, any } from 'prop-types';
-// import {Div} from 'client/views/components/native-components';
 
 class Repeater extends Component {
   static propTypes = {
@@ -12,15 +11,11 @@ class Repeater extends Component {
     const { count, children } = this.props;
     const list = [];
 
-    for( let i = 0; i < count; i++ ) {
+    for (let i = 0; i < count; i++) {
       list.push(<div key={`${children.key}-${i}`}>{children}</div>);
     }
 
-    return (
-      <Div>
-        {list}
-      </Div>
-    );
+    return <div>{list}</div>;
   }
 }
 
