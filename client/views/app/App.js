@@ -3,8 +3,7 @@ import config from 'client/config/config';
 import React, { Component } from 'react';
 import Routes from './Routes.js';
 import { func, object } from 'prop-types';
-import { Keycloak, KeycloakLogin, KeycloakLogout, KeycloakLoggedIn, KeycloakAccount } from 'client/utils/keycloak-react';
-// import {Div} from '../components/native-components/';
+// import { Keycloak, KeycloakLogin, KeycloakLogout, KeycloakLoggedIn, KeycloakAccount } from 'client/utils/keycloak-react';
 
 
 class App extends Component {

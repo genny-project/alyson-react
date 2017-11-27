@@ -17,5 +17,6 @@ export default new ComponentCollection({
   AppHolder,
   GennyForm,
   GennyNotification,
-  GennyTable
+  GennyTable,
+  Div
 });

@@ -15,9 +15,11 @@ class App extends Component {
       Button,
       Repeater,
     });
+    
 
     return <JSONLoader componentCollection={collection} layout={layout} />;
   }
 }
 
 ReactDOM.render( <App />, document.getElementById( 'root' ));
+

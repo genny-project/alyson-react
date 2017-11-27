@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { string } from 'prop-types';
+import {Button} from 'react-native';
 
-class Button extends Component {
+class ButtonNative extends Component {
   static propTypes = {
     text: string
   };
@@ -9,9 +10,9 @@ class Button extends Component {
   render() {
     const { text } = this.props;
     return (
-      <button className="btn btn-default">{text}</button>
+      <Button> {text} </Button> 
     );
   }
 }
 
-export default Button;
+export default ButtonNative;

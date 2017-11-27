@@ -3,6 +3,7 @@ import { object } from 'prop-types';
 import { ComponentCollection } from '../component-collection';
 import mustache from 'mustache';
 import hash from 'hash-sum';
+import {Div}  from '../native-components';
 
 /* Define all the built in html tags */
 const htmlTags = [
@@ -200,11 +201,11 @@ class JSONLoader extends Component {
     const { layout, context } = this.props;
 
     return (
-      <div>
+      <Div>
         {this.renderChildren(
           JSON.parse(mustache.render(JSON.stringify(layout.layout), context))
         )}
-      </div>
+      </Div>
     );
   }
 }

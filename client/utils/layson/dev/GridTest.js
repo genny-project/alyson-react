@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-
+import {Div} from '../src/native-components';
 class GridTest extends Component {
   render() {
     return (
-      <div>Test</div>
+      <Div>Test</Div>
     );
   }
 }

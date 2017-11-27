@@ -46,7 +46,7 @@
             }
           },
           {
-            "div": {
+            "Div": {
               "children": [
                 {
                   "Grid": {

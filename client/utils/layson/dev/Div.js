@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { any } from 'prop-types';
+import {Div} from '../src/native-components';
 
-class Div extends Component {
+
+class WebDiv extends Component {
   static propTypes = {
     children: any,
   };
@@ -16,12 +18,12 @@ class Div extends Component {
     delete props.children;
 
     return (
-      <div>
-        <p>{JSON.stringify( props )}</p>
+      <Div>
+        {JSON.stringify( props )}
         {children}
-      </div>
+      </Div>
     );
   }
 }
 
-export default Div;
+export default WebDiv;
