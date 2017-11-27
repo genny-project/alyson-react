@@ -9,7 +9,7 @@ class JSONLoaderTest extends Component {
   render() {
     const collection = new ComponentCollection({
       'Button': ButtonNative,
-      'div': Div
+      'div': WebDiv
     });
 
     return (
