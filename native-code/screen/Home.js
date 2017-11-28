@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import { Text, View , StyleSheet} from 'react-native'
-import {HTMLView} from 'react-native-htmlview';
 import {Test} from '../components/test';
-import App from 'client/views/app';
+// import App from 'client/views/app';
 // import LaysonApp from 'client/utils/layson/App';
-import LaysonApp from '../../client/utils/layson/dev/App';
+// import LaysonApp from '../../client/utils/layson/dev/App';
 
 //App inside View
 class Home extends Component {
@@ -12,7 +11,7 @@ class Home extends Component {
     console.log(App);
     return (
       <View style={style}>
-        <View> <Textt> Hello world</Textt></View>
+        <Text> Native Home component </Text>
       </View>
     );
   }
