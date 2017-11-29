@@ -1,27 +1,15 @@
 # Alyson v2
+## Installation and up and running for `IOS`
+1. `./git-pull-all-projects.sh`
+2. `./run-ios.sh`
+## Installation and up and running for `Web`
 
-## Installation
+1. `./git-pull-all-projects.sh` 
+2. `./run-web.sh`
 
-1. Download
-
-```git clone https://github.com/genny-project/alyson-v2.git alyson-v2```
-
-2. Navigate to root folder
-
-```cd alyson-v2```
-
-3. Install dependancies
-
-```npm install```
-
-4. Run
-
-```npm run start-web```
-
-5. Run on iOS 
- ``` npm run start-ios ``` 
-
-
-### Notes 
-
-1. Entry point for native project is ```index.js``` on root folder 
+## Manual Installation
+1. `git pull `
+2. `git checkout js-convert` 
+3. `npm install`
+4. `react-native run-ios`
+5. for web do  `npm run start-web`
