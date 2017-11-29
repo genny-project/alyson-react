@@ -86,7 +86,7 @@ class Keycloak extends Component {
                         });
                     }
                 },
-                (error) => alert(error.message),
+                (error) => console.log(error.message),
                 {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
             );
         }, 5000);
@@ -98,7 +98,7 @@ class Keycloak extends Component {
         console.log(destination);
         this.state.destinations.filter(x => x.latitude == destination.latitude && x.longitude == destination.longitude)[0].status = "out";
         this.sendDataToWeb("GEOFENCE", {
-            event_id: "GEOFENCE_EXIT",
+            value: "GEOFENCE_EXIT",
             code: destination.exitCode,
         })
     }
@@ -109,7 +109,7 @@ class Keycloak extends Component {
         console.log(destination);
         this.state.destinations.filter(x => x.latitude == destination.latitude && x.longitude == destination.longitude)[0].status = "in";
         this.sendDataToWeb("GEOFENCE", {
-            event_id: "GEOFENCE_ENTRY",
+            value: "GEOFENCE_ENTRY",
             code: destination.enterCode,
         })}
 
@@ -138,7 +138,7 @@ class Keycloak extends Component {
     }
 
     componentWillUnmount() {
-        navigator.geolocation.clearWatch(this.watchID);
+        // navigator.geolocation.clearWatch(this.watchID);
     }
 
     handleMessage = (message) => {
@@ -193,7 +193,7 @@ class Keycloak extends Component {
         return (
             <WebView
                 ref={x => {this.webView = x}}
-                source={{ uri: 'https://v2.channel40.com.au' }}
+                source={{ uri: 'http://localhost:3000' }}
                 allowUrlRedirect={true}
                 scalesPageToFit={false}
                 injectedJavaScript={patchPostMessageJsCode}
