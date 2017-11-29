@@ -1,7 +1,5 @@
 #!/bin/bash
 echo "running the project from"
-pwd 
-
 path_node="./node_modules"
 if [ -d "$path_node" ]; then 
 	echo "###################################################"
@@ -11,6 +9,7 @@ if [ -d "$path_node" ]; then
 	echo "node_modules exists running the app now"
 	echo "exists"
 	echo "running the web now 🍺  🍺  🍺  🍺  🍺  🍺  🍺  🍺  🍺  🍺 🍺  🍺  🍺   🍺 "
+	sleep 4
 	npm run start-web
 
 else 
