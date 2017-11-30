@@ -1,6 +1,7 @@
 // import './bucketView.scss';
 import React, { Component } from 'react';
 import { array, object, any } from 'prop-types';
+import {Div} from '../../native-components';
 
 class BucketView extends Component {
   static propTypes = {
@@ -17,9 +18,9 @@ class BucketView extends Component {
     });
 
     return (
-      <div key={i} className="bucket-contents">
+      <Div>
         {bucketChildren}
-      </div>
+      </Div>
     );
   }
 
@@ -27,18 +28,18 @@ class BucketView extends Component {
     const { buckets, style } = this.props;
 
     return (
-      <div className="bucket-view" style={style}>
+      <Div>
         {buckets.map(( bucket, i ) => (
-          <div className="bucket" key={bucket.title}>
-            <div className="bucket-title sticky">
+          <Div>
+            <Div>
               {bucket.title}
-            </div>
-            <div className="bucket-content">
+            </Div>
+            <Div>
               {this.renderBucket( i )}
-            </div>
-          </div>
+            </Div>
+          </Div>
         ))}
-      </div>
+      </Div>
     );
   }
 }

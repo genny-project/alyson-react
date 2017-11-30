@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { string, object, any } from 'prop-types';
 import {  } from '../';
+import {Div} from '../../native-components';
 
 class Template extends Component {
 
@@ -24,9 +25,9 @@ class Template extends Component {
     const componentStyle = { ...style, };
 
     return (
-      <div className={`template ${className}`}>
+      <Div>
         {children}
-      </div>
+      </Div>
     );
   }
 }

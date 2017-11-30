@@ -1,9 +1,11 @@
 // import './card.scss';
 import React, { Component } from 'react';
 import { string, array, object } from 'prop-types';
-import { Button, IconSmall, ProgressBar } from '../';
+import { IconSmall, ProgressBar } from '../';
 import { TransitionGroup } from 'react-transition-group';
-
+import {Div} from '../../native-components';
+import {Label} from '../../native-components';
+import {Button} from 'react-native';
 class Card extends Component {
 
   static defaultProps = {
@@ -39,26 +41,23 @@ class Card extends Component {
     const { data, buttons, level } = this.state;
 
     return (
-      <div className={`card-collapse fade fade-${status}`}>
+      <Div>
         {
           data.map(d => {
-            return <div className={`card-data ${d.name}`} key={d.name}>
+            return <Div>
               <IconSmall name={d.icon} />
               <span>{d.value}</span>
-            </div>;
+            </Div>;
           })
         }
-        <div className="card-buttons">
+        <Div>
           {
             buttons.map(b => {
-              return <Button className={b.class} key={b.name}>
-                <IconSmall name={b.icon} />
-                <span>{b.value}</span>
-              </Button>;
-            })
+              return <Button title = {b.value} />
+            });
           }
-        </div>
-      </div>
+        </Div>
+      </Div>
     );
 
     // const FadeTransition = (props) => (
@@ -108,25 +107,23 @@ class Card extends Component {
     const collapseArrow = isVisible ? 'expand_less' : 'expand_more';
 
     return (
-      <div className={`card ${className}`}>
-        <div className="card-top">
-          <div className="card-image" />
-          <div className="card-info">
-            <span>{textOne}</span>
-            <span>{textTwo}</span>
-          </div>
-          <div className={`card-light ${level}`} />
-        </div>
-        <div className="card-toggle" onClick={this.handleClick} >
+      <Div className={`card ${className}`}>
+        <Div className="card-top">
+          <Div className="card-image"/>
+          <Div className="card-info">
+            <Label>{textOne} </Label>
+            <Label> {textTwo} </Label>
+          </Div>
+          <Div className={`card-light ${level}`} />
+        </Div>
+        <Div className="card-toggle" onClick={this.handleClick}>
           <IconSmall name={collapseArrow} />
-        </div>
+        </Div>
         <TransitionGroup>
-
           {collapseContent}
-
         </TransitionGroup>
         {showProgress ? <ProgressBar progressTotal={pageCount} progressCurrent={pageCurrent} type={2} /> : null}
-      </div>
+      </Div>
     );
   }
 }
