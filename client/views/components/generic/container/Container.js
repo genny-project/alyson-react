@@ -1,6 +1,7 @@
 // import './container.scss';
 import React, { Component } from 'react';
 import { any, string } from 'prop-types';
+import {Div} from '../../native-components';
 class Container extends Component {
   static defaultProps = {
     className: '',
@@ -13,9 +14,9 @@ class Container extends Component {
 
   render() {
     return (
-      <div className={`container ${this.props.className}`}>
+      <Div>
         {this.props.children}
-      </div>
+      </Div>
     );
   }
 }

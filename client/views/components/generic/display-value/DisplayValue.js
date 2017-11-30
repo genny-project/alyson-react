@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { string } from 'prop-types';
-import { Label, InputText } from '../';
+import {Label, TextInput} from 'react-native';
 
 class DisplayValue extends Component {
 
@@ -20,7 +20,7 @@ class DisplayValue extends Component {
 
   render() {
     return (<div>
-      < Label text={this.props.text} />  < InputText placeholder={this.props.placeholder} />
+      < Label> {this.props.text} </Label>  < InputText placeholder={this.props.placeholder} />
     </div >
     );
   }

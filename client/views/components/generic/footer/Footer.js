@@ -1,7 +1,10 @@
 // import './footer.scss';
 import React, { Component }  from 'react';
 import { string, any, object } from 'prop-types';
+import {Image} from 'react-native';
 import { ImageView } from '../';
+import {Div,Label} from '../../native-components';
+
 
 class Footer extends Component {
   static defaultProps = {
@@ -21,16 +24,16 @@ class Footer extends Component {
     };
 
     return (
-      	<div className="footer" style={componentStyle}>
-          { version ? <span className="version">{version}</span> : null }
+      	<Div>
+          { version ? <Label>{version} </Label> : null }
       		{ poweredBy ? 
-            <div className="powered-by">
-              <span>powered by: </span>
-              { poweredBy.img ? <ImageView src={poweredBy.img} /> : null }
-              { poweredBy.caption ? <span>{poweredBy.caption}</span> : null }
-            </div>
+            <Div className="powered-by">
+              <Label>powered by: </Label>
+              { poweredBy.img ? <ImageView source={poweredBy.img} /> : null }
+              { poweredBy.caption ? <Label>{poweredBy.caption}</Label> : null }
+            </Div>
           : null }
-    	</div>
+    	</Div>
     );
   }
 }

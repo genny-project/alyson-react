@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { string, object, any } from 'prop-types';
 import {  } from '../';
+import {Div} from '../../native-components/';
 
 class Dropdown extends Component {
 
@@ -22,8 +23,8 @@ class Dropdown extends Component {
  	  const { className, children, style, visible } = this.props;
     const {  } = this.state;
     const componentStyle = { ...style, };
-
-    return ( visible ? <div className={`dropdown ${className}`}>{children}</div> : null );
+    
+    return ( visible ? <Div> {children} </Div> : null );
   }
 }
 
