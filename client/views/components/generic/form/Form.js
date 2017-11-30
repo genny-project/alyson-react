@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { Input, ProgressBar, Button, IconSmall } from '../';
 import { string, array, object} from 'prop-types';
+import {Div} from '../../native-components';
 
 class Form extends Component {
 
@@ -63,26 +64,26 @@ class Form extends Component {
     const askPageArray = this.getAskCount(askCount, itemsPerPage);
 
     return (
-      <div className="form-container">
-        <div className="form-main">
+      <Div>
+        <Div>
           { showProgress && itemsPerPage <= askCount ? <ProgressBar progressTotal={pageCount} progressCurrent={pageCurrent} type={1} /> : null }
-          <div className="form-fields">
+          <Div>
   	        {
               Object.keys(asks).map((ask_code, index) => {
                 return pageCurrent === askPageArray[index].page ? <Input key={index} ask={asks[ask_code]} /> : null;
               })
   	        }
-          </div>
-          <div className="form-nav">
+          </Div>
+          <Div>
               <Button className={`form-nav-prev ${pageCurrent > 1 ? 'visible' : 'hidden' }`} onClick={this.handlePrevPage} >
                 <IconSmall name="chevron_left" />
               </Button>
               <Button className={`form-nav-next ${pageCurrent < askCount / itemsPerPage ? 'visible' : 'hidden' }`} onClick={this.handleNextPage} >
                 <IconSmall name="chevron_right" />
               </Button>
-          </div>
-        </div>
-      </div>
+          </Div>
+        </Div>
+      </Div>
     );
   }
 }
