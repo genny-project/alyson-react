@@ -9,8 +9,6 @@ const Label = (props) => {
   );
 }
 
-Labal.propTypes ={
-  children = 'string'
-}
+
 
 export default Label;

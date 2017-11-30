@@ -10,7 +10,7 @@ class Card extends Component {
 
   static defaultProps = {
     className: '',
-    answerGroup: {},
+    answerGroup: {}
   }
 
   static propTypes = {
@@ -42,19 +42,20 @@ class Card extends Component {
 
     return (
       <Div>
+      <Div>
         {
           data.map(d => {
             return <Div>
-              <IconSmall name={d.icon} />
               <span>{d.value}</span>
             </Div>;
           })
         }
+        </Div>
         <Div>
           {
-            buttons.map(b => {
-              return <Button title = {b.value} />
-            });
+            buttons.map(b => 
+              <Button title = {b.value} />
+            )
           }
         </Div>
       </Div>
@@ -107,22 +108,14 @@ class Card extends Component {
     const collapseArrow = isVisible ? 'expand_less' : 'expand_more';
 
     return (
-      <Div className={`card ${className}`}>
-        <Div className="card-top">
-          <Div className="card-image"/>
-          <Div className="card-info">
-            <Label>{textOne} </Label>
-            <Label> {textTwo} </Label>
-          </Div>
-          <Div className={`card-light ${level}`} />
+      <Div>
+        <Div>
+          <Label>{textOne} </Label>
+          <Label> {textTwo} </Label>
         </Div>
-        <Div className="card-toggle" onClick={this.handleClick}>
-          <IconSmall name={collapseArrow} />
+        <Div>
+          <Label>icon goes here</Label>
         </Div>
-        <TransitionGroup>
-          {collapseContent}
-        </TransitionGroup>
-        {showProgress ? <ProgressBar progressTotal={pageCount} progressCurrent={pageCurrent} type={2} /> : null}
       </Div>
     );
   }
