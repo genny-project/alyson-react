@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { any, bool } from 'prop-types';
+import {Div} from '../../native-components';
 
 
 class Device extends Component {
@@ -29,7 +30,7 @@ class Device extends Component {
 
     if ( width < 768 ) {
       if ( hideMobile )
-        return <div />;
+        return <Div />;
 
       if ( isMobile )
         return children;
@@ -37,7 +38,7 @@ class Device extends Component {
 
     if ( width >= 768 && width < 992 ) {
       if ( hideTablet )
-        return <div />;
+        return <Div />;
 
       if ( isTablet )
         return children;
@@ -45,13 +46,13 @@ class Device extends Component {
 
     if ( width >= 992 ) {
       if ( hideDesktop )
-        return <div />;
+        return <Div />;
 
       if ( isDesktop )
         return children;
     }
 
-    return <div />;
+    return <Div />;
   }
 }
 

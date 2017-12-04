@@ -3,15 +3,17 @@ import React, { Component } from 'react';
 // import { TestComponent } from '../components/generic';
 // import { DisplayValue } from '../components/generic';
 import { LayoutLoader } from 'client/utils/genny/layout-loader';
+import {Div} from '../../Div';
+
 class Home extends Component {
   componentDidMount() {
     // document.getElementById('mounting-preview').remove();
   }
   render() {
     return (
-      <div className="home">
-        < LayoutLoader />
-      </div >
+      <Div>
+        <LayoutLoader/>
+      </Div>
     );
   }
 }
