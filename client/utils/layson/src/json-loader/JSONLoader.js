@@ -126,6 +126,7 @@ const htmlTags = [
   'wbr'
 ];
 
+
 class JSONLoader extends Component {
   static propTypes = {
     layout: object,
