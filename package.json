@@ -78,6 +78,7 @@
     "postcss-smart-import": "^0.5.1",
     "precss": "^1.4.0",
     "react-addons-test-utils": "^15.4.2",
+    "react-native-fontawesome": "^5.7.0",
     "react-test-renderer": "16.1.0",
     "restify": "^4.3.0",
     "sass-loader": "^4.0.0",

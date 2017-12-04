@@ -1,9 +1,11 @@
 // import './header.scss';
 import React, { Component } from 'react';
 import { string, object } from 'prop-types';
-import { IconSmall, Profile, Label, ImageView, Dropdown } from '../';
+import { IconSmall, Profile, ImageView, Dropdown } from '../';
 import { GennyNotification } from '../../genny';
 import { GennyBridge } from 'client/utils/genny';
+import {Div, Label} from '../../native-components';
+import {Image} from 'react-native'
 
 class Header extends Component {
   static defaultProps = {
@@ -56,28 +58,24 @@ class Header extends Component {
     };
 
     return (
-      <div className="header" style={componentStyle}>
-        <div className="header-left">
+      <Div>
+        <Div>
           <Label text={projectTitle} />
-        </div>
-        <div className="header-right">
+        </Div>
+        <Div>
           <GennyNotification />
-          <div className="profile">
-            <Label text={`Welcome, ${userName}`} onClick={this.handleClickProfile} />
-            <ImageView src={userImage} onClick={this.handleClickImage} />
-
-            <Dropdown visible={isVisible}>
-                <ul className="profile-dropdown">
-                  <li><IconSmall name="person" /><span>Profile</span></li>
-                  <li onClick={this.handleAccount} ><IconSmall name="settings" /><span>Account</span></li>
-                  <li onClick={this.handleLogout} ><IconSmall name="power_settings_new" /><span>Sign Out</span></li>
-                </ul>
+          <Div>
+            <Label>  `Welcome, ${userName}`</Label> 
+            <Image source={userImage}/>
+            <Dropdown visible={isVisible}>                
+              <Label> Profile </Label>
+              <Label> sAccount </Label>
+              <Label>Sign Out </Label>
             </Dropdown>
-
-          </div>
-          <IconSmall className="help" name="help" />
-        </div>
-      </div>
+          </Div>
+          <Label> Icon goes here </Label>
+        </Div>
+      </Div>
     );
   }
 }
