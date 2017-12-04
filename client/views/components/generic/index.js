@@ -95,7 +95,6 @@ export {
   default as Dropdown
 }
 from './dropdown';
-export {
-  default as NotificationItem
-}
-from './notification-item';
+export {default as NotificationItem} from './notification-item';
+
+export {default as IconSmallNative} from './icon-small-native';

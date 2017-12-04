@@ -1,6 +1,8 @@
 // import './ImageView.scss';
 import React, { Component } from 'react';
 import { string, any } from 'prop-types';
+import {Image} from 'react-native';
+import 
 
 class ImageView extends Component {
 

@@ -3,14 +3,17 @@ import {View} from 'react-native';
 import FontAwesome, { Icons } from 'react-native-fontawesome';
 
 
-const IconSmallNative = () => {
+const IconSmallNative = (props) => {
 return (
   <View> 
-    <FontAwesome> {Icons.} </FontAwesome>
+    <FontAwesome> props.name </FontAwesome>
   </View>
 
 );
+}
 
+IconSmallNative.defaultProps = {
+  name: 'chevronLeft'
 }
 
 
