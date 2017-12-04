@@ -15,13 +15,10 @@ class GridCol extends Component {
       
     var { position, children, ratio } = this.props;
 
-    const style = {
-      'flexGrow': ratio
-    };
 
     return (
       <Div> 
-      {children}
+        {children}
       </Div>
     );
   }

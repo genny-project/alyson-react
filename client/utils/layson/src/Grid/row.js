@@ -42,7 +42,6 @@ class GridRow extends Component {
 
   render() {
     const { cols } = this.props;
-
     return <Div> {this.layoutCols(cols)}</Div>;
   }
 }
