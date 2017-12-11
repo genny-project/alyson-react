@@ -18,6 +18,12 @@ module.exports = {
   },
   devtool: 'eval',
   module: {
+    rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node-modules/,
+        use: 'babel-loader',
+      },
       {
         test: /\.json$/,
         use: 'json-loader',
