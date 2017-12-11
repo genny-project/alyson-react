@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { string } from 'prop-types';
 import { InputDropdown, InputEmail, InputPassword, InputPhone, InputText, InputTextarea, InputMasked } from '../';
-import 
+import {Div} from '../../native-components';
 
 class Input extends Component {
   static defaultProps = {
@@ -18,7 +18,9 @@ class Input extends Component {
   render() {
     const { type } = this.props;
     return (
-      
+      <Div>
+        
+      </Div>
     );
   }
 }

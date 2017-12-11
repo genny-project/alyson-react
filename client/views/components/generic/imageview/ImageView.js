@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { string, any } from 'prop-types';
 import {Image} from 'react-native';
-import {Div} from '../../native-components';
+import {Div} from 'client/views/components/native-components';
 
 class ImageView extends Component {
 
@@ -17,7 +17,7 @@ class ImageView extends Component {
 
     return (
       <Div>
-        <Image source={src}/>
+        <Image src={src}/>
         {caption}
       </Div>
       

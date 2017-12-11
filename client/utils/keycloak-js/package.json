@@ -1,0 +1,57 @@
+{
+  "_args": [
+    [
+      "keycloak-js@3.4.0",
+      "/Users/conorpirie/projects/genny/alyson-v2"
+    ]
+  ],
+  "_from": "keycloak-js@3.4.0",
+  "_id": "keycloak-js@3.4.0",
+  "_inBundle": false,
+  "_integrity": "sha1-TO2kSzBaplXovrPbGglRUfb5b4Y=",
+  "_location": "/keycloak-js",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "keycloak-js@3.4.0",
+    "name": "keycloak-js",
+    "escapedName": "keycloak-js",
+    "rawSpec": "3.4.0",
+    "saveSpec": null,
+    "fetchSpec": "3.4.0"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/keycloak-js/-/keycloak-js-3.4.0.tgz",
+  "_spec": "3.4.0",
+  "_where": "/Users/conorpirie/projects/genny/alyson-v2",
+  "author": {
+    "name": "Keycloak"
+  },
+  "bugs": {
+    "url": "https://github.com/keycloak/keycloak-js-bower/issues"
+  },
+  "description": "Keycloak Adapter",
+  "homepage": "https://github.com/keycloak/keycloak-js-bower",
+  "keywords": [
+    "keycloak",
+    "sso",
+    "oauth",
+    "oauth2",
+    "authentication"
+  ],
+  "license": "Apache-2.0",
+  "main": "dist/keycloak.js",
+  "name": "keycloak-js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keycloak/keycloak-js-bower.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "typings": "dist/keycloak.d.ts",
+  "version": "3.4.0"
+}

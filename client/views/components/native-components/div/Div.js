@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 
 class Div extends Component {
+
+  // TODO: check if web OR native and render accordingly
   render() {
     return (
       <View>
-      {this.props.children}
+      {/* {this.props.children} */}
+      <Text>Div</Text>
       </View>
     )
   }

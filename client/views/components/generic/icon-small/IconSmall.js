@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { string, number } from 'prop-types';
+import { Div } from 'client/views/components/native-components'
 
 // import './iconsmall.scss';
 
@@ -24,8 +25,7 @@ class IconSmall extends Component {
   render() {
     const { className, size, name, onClick } = this.props;
     return (
-      <i className={`icon material-icons ${className} `} onClick={onClick} style={{ fontSize: size }}>{name}</i>
-
+      <Div className={`icon material-icons ${className} `} onClick={onClick} style={{ fontSize: size }}>{name}</Div>
     );
   }
 }

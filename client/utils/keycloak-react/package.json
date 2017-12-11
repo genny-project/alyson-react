@@ -1,0 +1,84 @@
+{
+  "_args": [
+    [
+      "@genny-project/keycloak-react@1.0.4",
+      "/Users/conorpirie/projects/genny/alyson-v2"
+    ]
+  ],
+  "_from": "@genny-project/keycloak-react@1.0.4",
+  "_id": "@genny-project/keycloak-react@1.0.4",
+  "_inBundle": false,
+  "_integrity": "sha1-egypl9a/K9TK/SUvd3sab4rNs1w=",
+  "_location": "/@genny-project/keycloak-react",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "@genny-project/keycloak-react@1.0.4",
+    "name": "@genny-project/keycloak-react",
+    "escapedName": "@genny-project%2fkeycloak-react",
+    "scope": "@genny-project",
+    "rawSpec": "1.0.4",
+    "saveSpec": null,
+    "fetchSpec": "1.0.4"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@genny-project/keycloak-react/-/keycloak-react-1.0.4.tgz",
+  "_spec": "1.0.4",
+  "_where": "/Users/conorpirie/projects/genny/alyson-v2",
+  "author": {
+    "name": "Matt Hayward",
+    "email": "matt@matthayward.com.au",
+    "url": "https://matthayward.com.au"
+  },
+  "dependencies": {
+    "keycloak-js": "^2.5.5",
+    "prop-types": "^15.5.10"
+  },
+  "description": "A library for integrating the Keycloak authentication server with React",
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-core": "^6.22.1",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-1": "^6.22.0",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.4",
+    "eslint": "^3.5.0",
+    "eslint-plugin-react": "^6.10.0",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "html-webpack-plugin": "^2.29.0",
+    "keycloak-js": "^2.2.0",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.6",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
+  },
+  "keywords": [
+    "react",
+    "keycloak",
+    "auth"
+  ],
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "name": "@genny-project/keycloak-react",
+  "peerDependencies": {
+    "react": "~0.14.8 || ^15.0.0"
+  },
+  "scripts": {
+    "build": "webpack -p --env=prod",
+    "publish": "npm publish --access=public",
+    "start": "webpack-dev-server --env=dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.4"
+}

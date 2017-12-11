@@ -2,9 +2,11 @@
 import React, { Component } from 'react';
 import { IconSmall } from '../';
 import { string } from 'prop-types';
+import { Div } from 'client/views/components/native-components';
 
 class SubmitStatusIcon extends Component {
-  static defaultProps = {
+ 
+	static defaultProps = {
     className: '',
     status: ''
   }
@@ -18,11 +20,11 @@ class SubmitStatusIcon extends Component {
     const { status } = this.props;
 	switch(status) {
 	    case "sending":
-	        return ( <div className="ellipsis-anim">
+	        return ( <Div className="ellipsis-anim">
 	        			<IconSmall name="brightness_1" size={4} />
 	        			<IconSmall name="brightness_1" size={4} />
 	        			<IconSmall name="brightness_1" size={4} />
-	        		</div> );
+	        		</Div> );
 	    case "success":
 	        return ( <IconSmall className="success" name="check_circle" size={14} /> );
 	    case "error":

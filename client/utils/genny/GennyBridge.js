@@ -57,9 +57,26 @@ class GennyBridge {
   }
 
   getKeycloakConfig() {
-    return this.ajaxCall({
-      url: `${config.genny.bridge.endpoints.events}/init?url=${window.location.origin}`,
-    });
+
+    return [{  
+      "realm":"genny",
+      "auth-server-url":"http://10.1.120.182:8180/auth",
+      "ssl-required":"none",
+      "resource":"genny",
+      "credentials":{  
+         "secret":"056b73c1-7078-411d-80ec-87d41c55c3b4"
+      },
+      "policy-enforcer":{  
+   
+      },
+      "vertx_url":"http://10.1.120.182:8088/frontend",
+      "url":"http://10.1.120.182:8180/auth",
+      "clientId":"genny"
+    }];
+
+    // return this.ajaxCall({
+    //   url: `${config.genny.bridge.endpoints.events}/init?url=${window.location.origin}`,
+    // });
   }
 
   initVertx(url) {

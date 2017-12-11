@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import { object, array, func } from 'prop-types';
 import { IconSmall, SubmitStatusIcon } from '../';
-import {BaseEntity} from '../../../../utils/genny';
-import { from } from 'rxjs/observable/from';
+import {BaseEntity} from 'client/utils/genny';
+import { Div } from 'client/views/components/native-components';
 
 class TreeView extends Component {
   static propTypes = {
@@ -37,30 +37,30 @@ class TreeView extends Component {
     items.map((item, i) => {
       if (item.children && item.open) {
         layout.push(
-          <li key={i}>
-            <div>
-              <span onClick={() => { this.sendSelectMsg(item); }}>
+          <Div key={i}>
+            <Div>
+              <Div onClick={() => { this.sendSelectMsg(item); }}>
                 { item.icon ? <IconSmall name={item.icon} /> : null }
                 {item.name}
-              </span>
+              </Div>
               <IconSmall onClick={this.onClick(item)} name="expand_more" />
-            </div>
-            <ul className="child" style={{ marginLeft: 10 }}>
+            </Div>
+            <Div className="child" style={{ marginLeft: 10 }}>
               {item.children.length ? this.renderList(item.children) : <SubmitStatusIcon status="sending" />}
-            </ul>
-          </li>);
+            </Div>
+          </Div>);
       }
       else {
         layout.push(
-          <li key={i}>
-            <div>
-              <span onClick={() => { this.sendSelectMsg(item); }}>
+          <Div key={i}>
+            <Div>
+              <Div onClick={() => { this.sendSelectMsg(item); }}>
                 { item.icon ? <IconSmall name={item.icon} /> : null }
                 {item && item.name}{console.log(item, 'item.sendSelectMsg from chevron right')}
-              </span>
+              </Div>
               <IconSmall onClick={this.onClick(item)} name="chevron_right" />
-            </div>
-          </li>);
+            </Div>
+          </Div>);
       }
     });
     return layout;
@@ -70,21 +70,21 @@ class TreeView extends Component {
   render() {
     const { items, baseEntity } = this.props;
     return (
-      <div className="treeview">
+      <Div className="treeview">
 
-        <BaseEntity>
+        {/* <BaseEntity>
           {
             (query) => {
               return <span>{query.getChildrenOf('GRP_DASHBOARD')}</span>;
             }
           }
-        </BaseEntity>
+        </BaseEntity> */}
 
-        <ul className="parent">
+        <Div className="parent">
           {this.renderList(items)}
-        </ul>
+        </Div>
 
-      </div>
+      </Div>
     );
   }
 }

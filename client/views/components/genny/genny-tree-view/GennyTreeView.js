@@ -5,6 +5,8 @@ import { object, array } from 'prop-types';
 import store from 'client/views/store';
 import { GennyBridge } from 'client/utils/genny';
 import { BaseEntity } from 'client/utils/genny/';
+import { Div } from 'client/views/components/native-components';
+
 class GennyTreeView extends Component {
   constructor(props) {
     super(props);
@@ -85,17 +87,17 @@ class GennyTreeView extends Component {
     return (
 
 
-      <div className="genny-tree-view">
-        <BaseEntity>
+      <Div className="genny-tree-view">
+        {/* <BaseEntity>
           {
             (query) => {
               return <span>{query.getRootChildren()}</span>;
             }
           }
-        </BaseEntity>
+        </BaseEntity> */}
 
         <TreeView root={root} {...this.props} items={items} onClick={this.handleClick.bind(this)} />
-      </div>
+      </Div>
     );
   }
 }

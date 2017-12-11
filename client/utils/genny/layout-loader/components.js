@@ -1,6 +1,7 @@
 
 import { Grid, Repeater, ComponentCollection } from '../../../../client/utils/layson';
 import { BucketView, Sidebar, ImageView, TreeView, GennyTreeView, GennyImageView, GennyNotification, Header, Footer, Card, AppHolder, GennyForm, GennyTable } from '../../../../client/views/components';
+import { Div } from '../../../views/components/native-components';
 
 export default new ComponentCollection({
   Grid,
