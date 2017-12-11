@@ -5,27 +5,18 @@ import {
   Text,
   View
 } from 'react-native';
-
-import { Home } from 'native-code/screen';
+import { Provider } from 'react-redux';
+import { StackNavigator } from 'react-navigation';
+import { Home } from './native-code/screen';
+import store from 'client/views/store';
 
 export default class App extends Component {
 
-  render() {
-
-     return StackNavigator(
-       {
-         Home: {
-           screen: Home,
-           navigationOptions: {
-             gesturesEnabled: false
-           }
-         }
-       },
-       {
-         headerMode: "none",
-         mode: "modal",
-         initialRouteName: "Home"
-       }
-     );
+   render() {
+    return (
+      <Provider store={store}>
+        <Home />
+      </Provider>
+    )
   }
 }

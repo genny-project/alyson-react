@@ -9,6 +9,7 @@ import { Div } from 'client/views/components/native-components';
 import Login from 'react-native-login';
 
 class App extends Component {
+  
   static propTypes = {
     appStart: func,
     authLoggedIn: func,
@@ -43,6 +44,9 @@ class App extends Component {
   }
 
   render() {
+
+    console.log( process );
+
     // const keycloak = this.props.keycloak;
     // const keycloakConfig = keycloak.config;
 
@@ -68,7 +72,7 @@ class App extends Component {
     // }
 
 
-
+    console.log("============")
     console.log(Login)
 
     Login.getTokens().then(tokens => {
