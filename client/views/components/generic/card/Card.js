@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 import { string, array, object } from 'prop-types';
 import { IconSmall, ProgressBar } from '../';
 import { TransitionGroup } from 'react-transition-group';
-import {Div} from '../../native-components';
-import {Label} from '../../native-components';
+import {Div} from 'nativeAndWeb/native-code/components/native-components';
+import {Label} from 'nativeAndWeb/native-code/components/native-components';
 import {Button} from 'react-native';
 class Card extends Component {
 
@@ -53,7 +53,7 @@ class Card extends Component {
         </Div>
         <Div>
           {
-            buttons.map(b => 
+            buttons.map(b =>
               <Button title = {b.value} />
             )
           }
@@ -67,7 +67,7 @@ class Card extends Component {
 
     // return (
     //   <FadeTransition>
-    //     { 
+    //     {
     //       (status) => {
     //         console.log(status);
     //         if (status === 'exited') {

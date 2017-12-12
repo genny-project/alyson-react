@@ -1,7 +1,7 @@
-// import './notifications.scss';
 import React, { Component } from 'react';
 import { string, int, object } from 'prop-types';
 import { IconSmall, Dropdown, NotificationItem } from '../';
+import { Div, Span } from 'nativeAndWeb/native-code/components/native-components';
 
 class Notifications extends Component {
 
@@ -30,21 +30,20 @@ class Notifications extends Component {
     const { className, notifications } = this.props;
     const { isVisible } = this.state;
 
-    console.log(notifications);
     return (
-      <div className="notifications" onClick={this.handleClickNotifs}>
+      <Div className="notifications" onClick={this.handleClickNotifs}>
         <IconSmall name="forum"/>
-        <div className="number" ><span>{Object.keys(notifications).length}</span></div>
+        <Div className="number" >{Object.keys(notifications).length}</Div>
         <Dropdown visible={isVisible}>
-          <ul className="notifications-dropdown">
+          <Div className="notifications-dropdown">
       	        {
                     Object.keys(notifications).map((notification_key, index) => {
                         return <NotificationItem notification={notifications[notification_key]} />
                     })
       	        }
-          </ul>
+          </Div>
         </Dropdown>
-      </div>
+    </Div>
     )
   }
 }

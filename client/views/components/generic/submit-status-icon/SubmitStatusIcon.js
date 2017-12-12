@@ -2,10 +2,10 @@
 import React, { Component } from 'react';
 import { IconSmall } from '../';
 import { string } from 'prop-types';
-import { Div } from 'client/views/components/native-components';
+import { Div } from 'nativeAndWeb/native-code/components/native-components';
 
 class SubmitStatusIcon extends Component {
- 
+
 	static defaultProps = {
     className: '',
     status: ''

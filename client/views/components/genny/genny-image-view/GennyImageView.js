@@ -4,7 +4,7 @@ import { object, array, any, string } from 'prop-types';
 import store from 'client/views/store';
 import { GennyBridge } from 'client/utils/genny';
 import { BaseEntity } from 'client/utils/genny/';
-import { Div } from 'client/views/components/native-components';
+import { Div } from 'nativeAndWeb/native-code/components/native-components';
 
 class GennyImageView extends Component {
 

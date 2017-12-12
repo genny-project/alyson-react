@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { GennyImageView } from '../../../components'
 import { object, bool, string, any } from 'prop-types';
+import { Div } from 'nativeAndWeb/native-code/components/native-components';
 
 class Sidebar extends Component {
 
@@ -27,10 +28,10 @@ class Sidebar extends Component {
         }
 
         return (
-            <div className="sidebar" style={componentStyle}>
+            <Div className="sidebar" style={componentStyle}>
               {imageView}
               {children}
-            </div>
+          </Div>
         );
     }
 }

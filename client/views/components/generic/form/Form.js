@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Input, ProgressBar, Button, IconSmall } from '../';
 import { string, array, object} from 'prop-types';
-import {Div} from '../../native-components';
+import {Div} from 'nativeAndWeb/native-code/components/native-components';
 
 class Form extends Component {
 
@@ -64,9 +64,8 @@ class Form extends Component {
     const askPageArray = this.getAskCount(askCount, itemsPerPage);
 
     return (
-      <Div>
         <Div>
-          { showProgress && itemsPerPage <= askCount ? <ProgressBar progressTotal={pageCount} progressCurrent={pageCurrent} type={1} /> : null }
+          {/* { showProgress && itemsPerPage <= askCount ? <ProgressBar progressTotal={pageCount} progressCurrent={pageCurrent} type={1} /> : null } */}
           <Div>
   	        {
               Object.keys(asks).map((ask_code, index) => {
@@ -83,7 +82,6 @@ class Form extends Component {
               </Button>
           </Div>
         </Div>
-      </Div>
     );
   }
 }

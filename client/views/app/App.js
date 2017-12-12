@@ -4,12 +4,12 @@ import React, { Component } from 'react';
 import Routes from './Routes.js';
 import { func, object } from 'prop-types';
 //import { Keycloak, KeycloakLogin, KeycloakLogout, KeycloakLoggedIn, KeycloakAccount } from 'client/utils/keycloak-react/src';
-import { Div } from 'client/views/components/native-components';
+import { Div } from 'nativeAndWeb/native-code/components/native-components';
 //import keycloakAdapter from 'client/utils/keycloak-js';
-import Login from 'react-native-login';
+import Login from 'react-native-keycloak';
 
 class App extends Component {
-  
+
   static propTypes = {
     appStart: func,
     authLoggedIn: func,
@@ -62,7 +62,7 @@ class App extends Component {
     //     </Div>
     //   );
     // }
-    
+
 
     // /* Render nothing if we haven't yet received the keycloak config */
     // if (!keycloakConfig) {
@@ -90,8 +90,8 @@ class App extends Component {
       realm: 'genny',
       client_id: 'genny',
       redirect_uri: 'http://localhost:3000/',
-      vertx_url: "http://10.1.120.182:8088/frontend", 
-      credentials: {  
+      vertx_url: "http://10.1.120.182:8088/frontend",
+      credentials: {
         secret: "056b73c1-7078-411d-80ec-87d41c55c3b4"
       },
       'ssl-required': "none",
@@ -100,7 +100,6 @@ class App extends Component {
     };
 
     Login.startLoginProcess(config).then(tokens => {
-
       this.props.authLoggedIn({
         token: tokens.access_token,
         info: '',

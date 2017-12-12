@@ -1,7 +1,8 @@
 // import './container.scss';
 import React, { Component } from 'react';
 import { any, string } from 'prop-types';
-import {Div} from '../../native-components';
+import {Div} from 'nativeAndWeb/native-code/components/native-components';
+
 class Container extends Component {
   static defaultProps = {
     className: '',

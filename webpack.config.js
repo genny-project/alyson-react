@@ -2,7 +2,6 @@ const path = require( 'path' );
 const webpack = require( 'webpack' );
 const Dashboard = require( 'webpack-dashboard/plugin' );
 
-
 module.exports = {
   context: path.resolve( __dirname, './client' ),
   entry: path.resolve( __dirname, './client/views/Root.js' ),
@@ -36,7 +35,7 @@ module.exports = {
         ],
       }
     ],
-
+]
   },
   resolve: {
     alias: {

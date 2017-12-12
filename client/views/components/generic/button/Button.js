@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { string, any, func } from 'prop-types';
-import {Div} from '../../native-components';
+import { Div } from 'nativeAndWeb/native-code/components/native-components';
+import { Button as NativeButton } from 'react-native';
 
 class Button extends Component {
   static defaultProps = {
@@ -22,15 +23,9 @@ class Button extends Component {
 
   render() {
     const { children, type, className, href, onClick } = this.props;
-    const btn = (
-      <Div>
-        <button onClick={onClick} className={type} >{children}</button>
-      </Div>
-    );
-
-    return href
-      ? <Link to={href}>{btn}</Link>
-      : btn;
+    return  <Div>
+       {/* <NativeButton onClick={onClick} className={type} >{children}</NativeButton> */}
+     </Div>;
   }
 }
 

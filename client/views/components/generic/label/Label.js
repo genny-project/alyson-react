@@ -1,6 +1,7 @@
 import React from 'react';
 import { string } from 'prop-types';
-// import './label.scss';
+import { Div, Span } from 'nativeAndWeb/native-code/components/native-components';
+import { Text } from 'react-native';
 
 Label.propTypes = {
   text: string
@@ -12,11 +13,7 @@ Label.defaultProps = {
 
 function Label(props) {
   return (
-    <div className="label">
-      <span className="label-text" onClick={props.onClick}>
-        {props.text}
-      </span>
-    </div>
+    <Text>{props.text}</Text>
   );
 }
 

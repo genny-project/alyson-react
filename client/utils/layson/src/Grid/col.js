@@ -1,7 +1,7 @@
 // import './grid.scss';
 import React, { Component } from 'react';
 import { array, number, any } from 'prop-types';
-import {Div} from '../native-components';
+import {Div} from 'nativeAndWeb/native-code/components/native-components';
 
 class GridCol extends Component {
 
@@ -12,12 +12,11 @@ class GridCol extends Component {
   }
 
   render() {
-      
+
     var { position, children, ratio } = this.props;
 
-
     return (
-      <Div> 
+      <Div>
         {children}
       </Div>
     );

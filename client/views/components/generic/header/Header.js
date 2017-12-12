@@ -1,11 +1,11 @@
 // import './header.scss';
 import React, { Component } from 'react';
 import { string, object } from 'prop-types';
-import { IconSmall, Profile, ImageView, Dropdown } from '../';
+import { IconSmall, Profile, ImageView, Dropdown, Label } from '../';
 import { GennyNotification } from '../../genny';
 import { GennyBridge } from 'client/utils/genny';
-import {Div, Label} from '../../native-components';
-import {Image} from 'react-native'
+import { Div } from 'nativeAndWeb/native-code/components/native-components';
+import { Image } from 'react-native'
 
 class Header extends Component {
   static defaultProps = {
@@ -63,11 +63,10 @@ class Header extends Component {
           <Label text={projectTitle} />
         </Div>
         <Div>
-          <GennyNotification />
           <Div>
-            <Label>  `Welcome, ${userName}`</Label> 
+            <Label>  `Welcome, ${userName}`</Label>
             <Image source={userImage}/>
-            <Dropdown visible={isVisible}>                
+            <Dropdown visible={isVisible}>
               <Label> Profile </Label>
               <Label> sAccount </Label>
               <Label>Sign Out </Label>

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { object, array, func } from 'prop-types';
 import { IconSmall, SubmitStatusIcon } from '../';
 import {BaseEntity} from 'client/utils/genny';
-import { Div } from 'client/views/components/native-components';
+import { Div } from 'nativeAndWeb/native-code/components/native-components';
 
 class TreeView extends Component {
   static propTypes = {
@@ -11,7 +11,7 @@ class TreeView extends Component {
     items: array,
     data: object,
   };
-  
+
   onClick = (item) => (event) => {
     event.stopPropagation();
     event.preventDefault();
@@ -20,6 +20,7 @@ class TreeView extends Component {
   }
 
   sendSelectMsg = (item) => {
+
     this.sendData('TV_SELECT', {
       code: 'TV1',
       value: item.code
@@ -68,22 +69,13 @@ class TreeView extends Component {
 
 
   render() {
+
     const { items, baseEntity } = this.props;
+
     return (
       <Div className="treeview">
-
-        {/* <BaseEntity>
-          {
-            (query) => {
-              return <span>{query.getChildrenOf('GRP_DASHBOARD')}</span>;
-            }
-          }
-        </BaseEntity> */}
-
         <Div className="parent">
-          {this.renderList(items)}
         </Div>
-
       </Div>
     );
   }

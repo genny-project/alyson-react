@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { any, number } from 'prop-types';
 import GridCol from './col';
-import {Div} from '../native-components';
+import {Div} from 'nativeAndWeb/native-code/components/native-components';
 
 class GridRow extends Component {
   static propTypes = {

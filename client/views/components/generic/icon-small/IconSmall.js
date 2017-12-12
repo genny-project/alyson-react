@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { string, number } from 'prop-types';
-import { Div } from 'client/views/components/native-components'
-
-// import './iconsmall.scss';
+import { Div } from 'nativeAndWeb/native-code/components/native-components'
+import { Text } from 'react-native';
 
 class IconSmall extends Component {
 
@@ -25,7 +24,7 @@ class IconSmall extends Component {
   render() {
     const { className, size, name, onClick } = this.props;
     return (
-      <Div className={`icon material-icons ${className} `} onClick={onClick} style={{ fontSize: size }}>{name}</Div>
+      <Div className={`icon material-icons ${className} `} onClick={onClick} style={{ fontSize: size }}><Text>{name}</Text></Div>
     );
   }
 }

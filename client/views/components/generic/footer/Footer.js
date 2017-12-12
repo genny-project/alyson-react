@@ -1,9 +1,9 @@
 // import './footer.scss';
 import React, { Component }  from 'react';
 import { string, any, object } from 'prop-types';
-import {Image} from 'react-native';
-import { ImageView } from '../';
-import {Div,Label} from '../../native-components';
+import { Image } from 'react-native';
+import { ImageView, Label } from '../';
+import {Div} from 'nativeAndWeb/native-code/components/native-components';
 
 
 class Footer extends Component {
@@ -25,8 +25,7 @@ class Footer extends Component {
 
     return (
       	<Div>
-          { version ? <Label>{version} </Label> : null }
-      		{ poweredBy ? 
+      		{ poweredBy ?
             <Div className="powered-by">
               <Label>powered by: </Label>
               { poweredBy.img ? <ImageView source={poweredBy.img} /> : null }

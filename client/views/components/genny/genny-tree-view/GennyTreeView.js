@@ -1,11 +1,10 @@
-// import './gennyTreeView.scss';
 import React, { Component } from 'react';
 import { TreeView } from '../../';
 import { object, array } from 'prop-types';
 import store from 'client/views/store';
 import { GennyBridge } from 'client/utils/genny';
 import { BaseEntity } from 'client/utils/genny/';
-import { Div } from 'client/views/components/native-components';
+import { Div } from 'nativeAndWeb/native-code/components/native-components';
 
 class GennyTreeView extends Component {
   constructor(props) {
@@ -80,22 +79,14 @@ class GennyTreeView extends Component {
   }
 
   render() {
+      
     const { root, baseEntity } = this.props;
     const relationships = baseEntity.relationships[root];
     const items = this.getEntityChildren(root);
 
     return (
 
-
       <Div className="genny-tree-view">
-        {/* <BaseEntity>
-          {
-            (query) => {
-              return <span>{query.getRootChildren()}</span>;
-            }
-          }
-        </BaseEntity> */}
-
         <TreeView root={root} {...this.props} items={items} onClick={this.handleClick.bind(this)} />
       </Div>
     );

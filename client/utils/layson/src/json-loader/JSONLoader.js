@@ -3,8 +3,8 @@ import { object } from 'prop-types';
 import { ComponentCollection } from '../component-collection';
 import mustache from 'mustache';
 import hash from 'hash-sum';
-import {Div} from '../native-components';
-/* Define all the built in html tags */
+import { Div } from 'nativeAndWeb/native-code/components/native-components';
+
 const htmlTags = [
   'a',
   'abbr',
@@ -128,6 +128,7 @@ const htmlTags = [
 
 
 class JSONLoader extends Component {
+
   static propTypes = {
     layout: object,
     componentCollection: object,
@@ -140,6 +141,7 @@ class JSONLoader extends Component {
   };
 
   renderChildren(data) {
+
     if (!data) {
       return null;
     }
@@ -170,6 +172,7 @@ class JSONLoader extends Component {
   }
 
   renderComponent(type, data, index = 0) {
+
     /* Get the data */
     const props = {
       key: hash({ type, data, index }),

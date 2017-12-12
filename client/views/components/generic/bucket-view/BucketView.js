@@ -1,7 +1,7 @@
 // import './bucketView.scss';
 import React, { Component } from 'react';
 import { array, object, any } from 'prop-types';
-import {Div} from '../../native-components';
+import {Div} from 'nativeAndWeb/native-code/components/native-components';
 
 class BucketView extends Component {
   static propTypes = {

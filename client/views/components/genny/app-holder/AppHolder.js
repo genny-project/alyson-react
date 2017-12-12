@@ -1,7 +1,7 @@
-// import './appHolder.scss';
 import React, { Component } from 'react';
 import { Sidebar, Header, Footer, IconSmall } from '../../';
 import { bool, any } from 'prop-types';
+import { Div } from 'nativeAndWeb/native-code/components/native-components';
 
 class AppHolder extends Component {
 
@@ -14,7 +14,7 @@ class AppHolder extends Component {
 
     state = {
         sidebarShrink: false
-      } 
+      }
 
     handleSidebarSize = () => {
         this.setState(prevState => ({
@@ -31,32 +31,32 @@ class AppHolder extends Component {
         let renderSidebar;
         if ( sidebar ) {
             const sidebarWidth = sidebarShrink ? "50px" : "300px";
-            renderSidebar = <div className="app-sidebar" style={{ width: sidebarWidth }} >
+            renderSidebar = <Div className="app-sidebar" style={{ width: sidebarWidth }} >
                 <IconSmall className="app-sidebar-toggle" name="menu" onClick={this.handleSidebarSize}/>
                 <Sidebar {...sidebar} >{sidebarChildren}</Sidebar>
-            </div>;
+            </Div>;
         }
 
         let renderHeader;
         if ( header ) {
-            renderHeader = <div className="app-header"><Header {...header} /></div>;
+            renderHeader = <Div className="app-header"><Header {...header} /></Div>;
         }
 
         let renderFooter;
         if ( footer ) {
-            renderFooter = <div className="app-footer"><Footer {...footer} /></div>;
+            renderFooter = <Div className="app-footer"><Footer {...footer} /></Div>;
         }
 
         return (
-          <div className="app-holder">
+          <Div className="app-holder">
             {renderSidebar}
-            <div className="app-main">
+            <Div className="app-main">
               {renderHeader}
-              <div className="app-content">{contentChildren}</div>
-        
+              <Div className="app-content">{contentChildren}</Div>
+
               {renderFooter}
-            </div>
-          </div>
+          </Div>
+      </Div>
         );
     }
 }

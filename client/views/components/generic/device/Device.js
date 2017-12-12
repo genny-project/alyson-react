@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { any, bool } from 'prop-types';
-import {Div} from '../../native-components';
+import {Div} from 'nativeAndWeb/native-code/components/native-components';
 
 
 class Device extends Component {
@@ -19,9 +19,9 @@ class Device extends Component {
   }
 
   componentWillMount() {
-    window.addEventListener( 'resize', event => {
-      this.setState({ width: event.target.innerWidth });
-    });
+    // window.addEventListener( 'resize', event => {
+    //   this.setState({ width: event.target.innerWidth });
+    // });
   }
 
   render() {

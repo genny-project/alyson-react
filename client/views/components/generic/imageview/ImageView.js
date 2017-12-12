@@ -1,8 +1,7 @@
-// import './ImageView.scss';
 import React, { Component } from 'react';
 import { string, any } from 'prop-types';
-import {Image} from 'react-native';
-import {Div} from 'client/views/components/native-components';
+import { Image } from 'react-native';
+import { Div } from 'nativeAndWeb/native-code/components/native-components';
 
 class ImageView extends Component {
 
@@ -20,7 +19,7 @@ class ImageView extends Component {
         <Image src={src}/>
         {caption}
       </Div>
-      
+
     );
   }
 }

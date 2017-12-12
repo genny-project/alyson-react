@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { object } from 'prop-types';
 import LayoutNotFound from './layout-not-found';
 import components from './components';
-import { JSONLoader } from 'client/utils/layson';
+import { JSONLoader } from 'client/utils/layson/src';
 
 class LayoutLoader extends Component {
 
