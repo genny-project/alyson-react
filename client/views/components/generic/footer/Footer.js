@@ -5,7 +5,6 @@ import { Image } from 'react-native';
 import { ImageView, Label } from '../';
 import {Div} from 'nativeAndWeb/native-code/components/native-components';
 
-
 class Footer extends Component {
   static defaultProps = {
     className: '',
