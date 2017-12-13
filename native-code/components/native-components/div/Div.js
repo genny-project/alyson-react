@@ -3,7 +3,7 @@ import { Text, View } from 'react-native';
 
 const Div = (props)=> {
 
-    console.log( props )
+    console.log( props.children )
   return (
     <View>
         {props.children}

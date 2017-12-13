@@ -48,15 +48,15 @@ class AppHolder extends Component {
         }
 
         return (
-          <Div className="app-holder">
-            {renderSidebar}
-            <Div className="app-main">
-              {renderHeader}
-              <Div className="app-content">{contentChildren}</Div>
+            <Div className="app-holder">
+                {/* {renderSidebar}
+                <Div className="app-main">
+                  {renderHeader}
+                  <Div className="app-content">{contentChildren}</Div>
 
-              {renderFooter}
-          </Div>
-      </Div>
+                  {renderFooter}
+              </Div> */}
+            </Div>
         );
     }
 }
