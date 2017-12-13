@@ -1,7 +1,6 @@
+import './ImageView.scss';
 import React, { Component } from 'react';
 import { string, any } from 'prop-types';
-import { Image } from 'react-native';
-import { Div } from 'nativeAndWeb/native-code/components/native-components';
 
 class ImageView extends Component {
 
@@ -12,14 +11,17 @@ class ImageView extends Component {
 
   render() {
 
-    const { caption, src, onClick } = this.props;
+    const { caption, src, onClick, style } = this.props;
+
+    const componentStyle = {
+      ...style,
+    };
 
     return (
-      <Div>
-        <Image src={src}/>
-        {caption}
-      </Div>
-
+      <div className="imageView" style={componentStyle}>
+        <img src={src} onClick={onClick} />
+        { caption ? <span>{caption}</span> : null }
+      </div>
     );
   }
 }

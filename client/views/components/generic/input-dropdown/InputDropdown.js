@@ -1,129 +1,92 @@
-// import './inputDropdown.scss';
-import React from 'react';
-import { GennyComponent } from '../genny-component';
-import { string, bool, array } from 'prop-types';
-import { CSSTransitionGroup } from 'react-transition-group';
+import './inputDropdown.scss';
+import React, { Component } from 'react';
+import { string, object, func, any } from 'prop-types';
+import Downshift from 'downshift'
+import { Label, IconSmall } from '../';
 
-class InputDropdown extends GennyComponent {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isVisible: false,
-      currentValue: '',
-      currentSelect: '',
-      highlight: 0
-    };
-
-    this.handleDropdown = this.handleDropdown.bind(this);
-    this.handleSelect = this.handleSelect.bind(this);
-    this.handleBlur = this.handleBlur.bind(this);
-    this.handleFocus = this.handleFocus.bind(this);
-  }
-
-  handleDropdown() {
-    this.setState(prevState => ({
-      isVisible: !prevState.isVisible
-    }));
-  }
-
-
-  handleSelect(event, index, name, value){
-    console.log(name, value);
-
-    this.setState({ 
-      currentValue: value,
-      currentSelect: name,
-      highlight: index,
-      isVisible: false
-    });
-  }
-
-  handleBlur(){
-    this.setState({ 
-      isVisible: false
-    });
-  }
-
-  handleFocus(){
-    this.setState({ 
-      isVisible: true
-    });
-  }
-
-  handleKeyPress = (event) => {
-      event.preventDefault();
-      console.log(event.key);
-      if (event.key === 'ArrowUp'){
-        this.setState(prevState => ({
-          highlight: prevState.highlight - 1
-        }));
-      } else if (event.key === 'ArrowDown'){
-        this.setState(prevState => ({
-          highlight: prevState.highlight + 1
-        }));
-      }
-  }
+class InputDropdown extends Component {
 
   static defaultProps = {
     className: '',
-    name: '',
-    readOnly: false,
-    defaultValue: '',
-    placeholder: '',
-    options: [],
-    label: '',
+    hint: '',
+    identifier: null,
+    validationStatus: null
   }
 
   static propTypes = {
     className: string,
-    name: string,
-    readOnly: bool,
-    defaultValue: string,
-    placeholder: string,
-    options: array,
-    label: string,
+    style: object,
+    hint: string,
+    validation: func,
+    identifier: any,
+    validationStatus: string
+  }
+
+  state = {
+    ask: this.props.ask ? this.props.ask : false,
+    value: this.props.placeholder,
+  }
+
+  handleClick = (selectedItem) => {
+    const { validationList, validation, identifier,  } = this.props;
+    const value = selectedItem;
+    this.setState({ focused: false });
+    if(validation) validation(value, identifier, validationList);
   }
 
   render() {
-    const { className, name, readOnly, defaultValue, placeholder, options, label } = this.props;
-    const collapseContent = this.state.isVisible ? this.DropdownOptions() : '';
-    const collapseArrow = this.state.isVisible ? 'expand_less' : 'expand_more';
-    const currentValue = this.state.currentValue;
-    const currentSelect = this.state.currentSelect;
+ 	  const { className, style, items, name, hint, validationStatus, ...rest } = this.props;
+    const { value } = this.state;
+    const componentStyle = { ...style, };
+
+    console.log(this.props);
+
     return (
-      <div className={`input-dropdown ${className}`}>
-        {label ? <Label>{label}</Label> : null }
-        <div className="input-dropdown-main" onClick={this.handleDropdown} >
-          <input type="text" id="one" readOnly value={currentSelect} onFocus={this.handleFocus} onBlur={this.handleBlur} onKeyDown={(event) => this.handleKeyPress(event)}/>
-          <i className="icon material-icons">{collapseArrow}</i>
-        </div>
-        <CSSTransitionGroup
-          transitionName="example"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}>
-          {collapseContent}
-        </CSSTransitionGroup>
+      <div className={`input-dropdown ${className} ${validationStatus}` }>
+        {name ? <Label className="dropdown-label" text={name} /> : null }
+        <Downshift {...rest} onChange={this.handleClick}>
+          {({
+
+            getItemProps,
+            isOpen,
+            toggleMenu,
+            clearSelection,
+            selectedItem,
+            inputValue,
+            highlightedIndex,
+          }) => (
+            <div className="dropdown-container">
+              <div
+                type="button"
+                className={`input-dropdown-button ${isOpen ? "selected" : ""}`}
+                onClick={toggleMenu}
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded={isOpen}
+              >
+                <span className="">{selectedItem ? selectedItem : value }</span>
+                <IconSmall name={ isOpen ? 'expand_more' : 'chevron_right'} />
+              </div>
+              {isOpen ? (
+                <ul style={{display: 'block'}} className="dropdown-menu">
+                  {items.map(item => (
+                    <li
+                      {...getItemProps({item})}
+                      key={item}
+                      className="dropdown-item"
+                      style={{cursor: 'pointer'}}    
+                    >
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </div>
+          )}
+        </Downshift>
       </div>
     );
   }
-
-  DropdownOptions() {
-    const { options} = this.props;
-    const highlight = this.state.highlight;
-    return (
-      <div className="dropdown-options">
-        {
-          options.map((o, index) => {
-            return <div className={`dropdown-option ${highlight === index ? 'highlight': ''}`} key={o.name} value={o.value} onMouseDown={ (e) => this.handleSelect(e, index, o.name, o.value) }>
-                <span>{o.name}</span>
-            </div>;
-          })
-        }
-      </div>
-    );
-  }
-
 }
 
 export default InputDropdown;

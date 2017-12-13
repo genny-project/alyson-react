@@ -1,11 +1,10 @@
-// import './button.scss';
+import './button.scss';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { string, any, func } from 'prop-types';
-import { Div } from 'nativeAndWeb/native-code/components/native-components';
-import { Button as NativeButton } from 'react-native';
 
 class Button extends Component {
+  
   static defaultProps = {
     className: '',
     href: '',
@@ -18,14 +17,34 @@ class Button extends Component {
     className: string,
     href: string,
     type: string,
-    onClick: func,
+    onClick: func
+  }
+
+  getClickFunction = () => {
+    const { onClick, handleClick } = this.props;
+    
+    if (handleClick) {
+      return handleClick
+    } else {
+      return onClick
+    }
   }
 
   render() {
-    const { children, type, className, href, onClick } = this.props;
-    return  <Div>
-       {/* <NativeButton onClick={onClick} className={type} >{children}</NativeButton> */}
-     </Div>;
+    const { children, type, className, href, onClick, style, color } = this.props;
+    const componentStyle = { ...style, };
+
+    const clickFunc = this.getClickFunction();
+
+    const btn = (
+      <div className={`button ${className} ${type}`} style={componentStyle}>
+        <button onClick={clickFunc} style={{backgroundColor: color}}>{children}</button>
+      </div>
+    );
+
+    return href
+      ? <Link to={href}>{btn}</Link>
+      : btn;
   }
 }
 

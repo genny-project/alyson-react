@@ -1,89 +1,77 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import store from 'client/views/store';
 
-class BaseEntityQuery extends Component {
+class BaseEntityQuery {
 
-  constructor(props) {
-    super(props);
-  }
+    static getEntityChildren(code) {
 
+        const relationships = store.getState().baseEntity.relationships[code];
+        let items = relationships ? Object.keys(relationships).filter(key => relationships[key]).map(code => store.getState().baseEntity.data[code]) : [];
 
-  helloWorld = (code) => {
-  }
+        let rootEntity = BaseEntityQuery.getBaseEntity(code);
 
-  getChildrens = () => {
-    const entities = this.props.baseEntities.data;
-    const entitiesArr = Object.keys(entities).map(key => entities[key]);
-    // return entitiesArr;
-  }
+        items = items.map(item => {
 
-  // Get the Roots Children
-  getRootChildren() {
+            // order by weight if found in links
+            let weight = 0;
+            if(rootEntity && rootEntity.links) {
 
-    let items = this.props.baseEntities.relationships ? Object.keys(this.props.baseEntities.relationships).map(key => this.props.baseEntities.relationships[key]) : [];
-  }
+                let currentLinks = rootEntity.links.filter(x => {
+                    return x.link.targetCode == item.code
+                });
 
-  getChildrenOf(entity_code) {
-    let items = this.props.baseEntities.data;
-    const itemsArr = Object.keys(items).map(key => items[key]);
-    itemsArr.map(item => {
+                weight = currentLinks.length > 0 ? currentLinks[0].weight : weight;
+            }
 
-      if (item.code === entity_code) {
-        // return item.data.children;
-      }
-      else {
-        // return [];
-      }
-    });
-  }
+            const children = this.getEntityChildren(item.code);
+            item.children = children;
+            item.weight = weight;
+            return item;
+        });
 
-  getAlias = (code) => {
-
-    let layout = [];
-
-    // check aliases if any for passed entities
-    for (let entity_code_key in code) {
-
-      let baseEntities = this.props.baseEntities.data;
-      for (let key in baseEntities) {
-
-        // if we find the base entity we are looking for
-        if (key === entity_code_key) {
-
-          // we loop through all the attributes to find the ones we want
-          code[entity_code_key].forEach(attribute => {
-
-            let be = this.props.baseEntities.data[key];
-
-            // we loop through attributes
-            be.attributes.forEach(be_attribute => {
-
-              if (be_attribute.code === attribute) {
-                layout.push(
-                  <p>{be_attribute.value}</p>
-                );
-              }
-            });
-          });
-        }
-      }
+        return items.sort((x, y) => x.weight > y.weight);
     }
 
-    return layout;
-  }
+    static getAlias = (alias_code) => {
 
-  render() {
-    // console.log(this.getChildren());
-    return (
-      <div>
-        <h1> Base entity query element </h1>
-      </div>
-    );
-  }
+        let aliases = store.getState().baseEntity.aliases;
+        let matchingAliases = Object.keys(aliases).filter(x => x == alias_code);
+        if(matchingAliases.length > 0) {
+
+            let be_code = aliases[matchingAliases[0]];
+            let baseEntities = store.getState().baseEntity.data;
+            let matchingEntities = Object.keys(baseEntities).filter(x => x == be_code);
+            if(matchingEntities.length > 0) {
+                return baseEntities[matchingEntities[0]];
+            }
+        }
+
+        return null;
+    }
+
+    static getBaseEntity = (code) => {
+        return store.getState().baseEntity.data[code];
+    }
+
+    static getAliasAttribute = (alias_code, attribute_code) => {
+
+        let be = BaseEntityQuery.getAlias(alias_code);
+        if(be && be.attributes) {
+            return be.attributes[attribute_code];
+        }
+
+        return null;
+    }
+
+    static getBaseEntityAttribute = (baseEntityCode, attribute_code) => {
+
+        let be = BaseEntityQuery.getBaseEntity(baseEntityCode);
+        if(be && be.attributes) {
+            return be.attributes[attribute_code];
+        }
+
+        return null;
+    }
 }
-
-const mapStateTopProps = (state) => ({
-  data: state.baseEntity
-});
 
 export default BaseEntityQuery;

@@ -1,4 +1,4 @@
-import { ALIAS as ALIAS_DATA } from '../../../constants';
+import { ALIAS as ALIAS_DATA } from 'client/constants';
 
 export const Alias = message => ({
   type: ALIAS_DATA,

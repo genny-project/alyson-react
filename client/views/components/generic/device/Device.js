@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { any, bool } from 'prop-types';
-import {Div} from 'nativeAndWeb/native-code/components/native-components';
 
 
 class Device extends Component {
@@ -15,44 +14,36 @@ class Device extends Component {
   }
 
   state = {
-    width: window.innerWidth,
-  }
-
-  componentWillMount() {
-    // window.addEventListener( 'resize', event => {
-    //   this.setState({ width: event.target.innerWidth });
-    // });
   }
 
   render() {
     const { isMobile, isTablet, isDesktop, hideMobile, hideTablet, hideDesktop, children } = this.props;
-    const { width } = this.state;
 
-    if ( width < 768 ) {
+    if ( window.getScreenSize() == 'sm' ) {
       if ( hideMobile )
-        return <Div />;
+        return null;
 
       if ( isMobile )
         return children;
     }
 
-    if ( width >= 768 && width < 992 ) {
+    if ( window.getScreenSize() == 'md' ) {
       if ( hideTablet )
-        return <Div />;
+        return null;
 
       if ( isTablet )
         return children;
     }
 
-    if ( width >= 992 ) {
+    if ( window.getScreenSize() == 'lg' ) {
       if ( hideDesktop )
-        return <Div />;
+        return null;
 
       if ( isDesktop )
         return children;
     }
 
-    return <Div />;
+    return null;
   }
 }
 

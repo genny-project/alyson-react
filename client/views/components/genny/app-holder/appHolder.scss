@@ -2,52 +2,23 @@
 
 .app-holder {
 
-	display: flex;
+	height: 100vh;
 
+	> .grid > .row:first-child {
+	
+	 	> .col:first-child {
+			overflow: initial !important;
+			z-index: 100;
+			position: relative;
+		}
 
-	.app-sidebar{
+		> .col:nth-child(2) {
+			overflow: hidden !important;
+		}
 
-		transition: 500ms ease;
-
-		height: 100vh;
-
-		box-shadow: 5px 0px 5px 0px rgba(0,0,0,0.25);
-        z-index: 1000;
-
-        position: relative;
-
-        .app-sidebar-toggle {
-        	position: absolute;
-        	top: 10px;
-        	right: 10px;
-        	cursor: pointer;
-        }
 	}
 
-	.app-main {
-
-		flex-grow: 1;
-
-		height: 100vh;
-
-		.app-header {
-
-
-		}
-
-		.app-content {
-
-			overflow-y: scroll;
-			height: calc(100vh - 84px);
-			display: flex;
-			flex-direction: column;
-
-		}
-
-		.app-footer {
-
-
-
-		}
+	&.sm > .app-main > .row:nth-child(2) .col {
+		overflow: hidden !important;
 	}
 }

@@ -1,4 +1,4 @@
-import { LOGOUT, ACCOUNTS } from '../../../constants';
+import { LOGOUT, ACCOUNTS } from 'client/constants';
 
 export const CMD_LOGOUT = () => ({
   type: LOGOUT,

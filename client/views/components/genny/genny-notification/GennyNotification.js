@@ -1,4 +1,4 @@
-// import './gennyNotification.scss';
+import './gennyNotification.scss';
 import React, { Component } from 'react';
 import { Notifications } from '../../../components';
 import { string, any, object } from 'prop-types';
@@ -20,10 +20,8 @@ class GennyNotification extends Component {
 
     const { notifications } = this.props;
 
-    return (
-      <Notifications notifications={notifications}>
-      </Notifications>
-    );
+    return <Notifications notifications={notifications}>
+      </Notifications>;
   }
 }
 

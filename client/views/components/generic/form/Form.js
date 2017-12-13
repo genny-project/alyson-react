@@ -1,87 +1,59 @@
-// import './form.scss';
+import './form.scss';
 import React, { Component } from 'react';
-import { Input, ProgressBar, Button, IconSmall } from '../';
-import { string, array, object} from 'prop-types';
-import {Div} from 'nativeAndWeb/native-code/components/native-components';
+import { ProgressBar, Button, IconSmall, Pagination } from 'views/components';
+import { string, bool, number} from 'prop-types';
+import { FormGroup } from './form-group';
 
 class Form extends Component {
 
   static defaultProps = {
     className: '',
-    asks: {}
+    itemsPerPage: 3
   }
 
   static propTypes = {
     className: string,
-    asks: object,
+    itemsPerPage: number,
+    showProgress: bool,
   }
 
   state = {
-    itemsPerPage: this.props.itemsPerPage ? this.props.itemsPerPage : 1,
     showProgress: this.props.showProgress ? this.props.showProgress : false,
-    asks: this.props.asks,
-    pageCount: Math.ceil( Object.keys(this.props.asks).length / this.props.itemsPerPage ),
-    askCurrent: 1,
-    pageCurrent: 1,
   }
 
-  handlePrevPage = () => {
-    if ( this.state.pageCurrent > 1 ) {
-      this.setState(prevState => ({
-          pageCurrent: prevState.pageCurrent--
-        }, () => {
-          console.log(this.state.pageCurrent)
-        }),
-      );
-    }
-  }
+  renderGroup(questionGroup) {
 
-  handleNextPage = () => {
-    if ( this.state.pageCurrent < this.state.askCount / this.state.itemsPerPage ) {
-      this.setState(prevState => ({
-          pageCurrent: prevState.pageCurrent++
-        }, () => {
-          console.log(this.state.pageCurrent)
-        }),
-      );
-    }
-  }
+      if(Array.isArray( questionGroup )) {
+          return questionGroup.map(group => {
+             if(group.content) return this.renderGroup(group);
+             return group;
+          });
+      }
+      else if (questionGroup.content) {
+          return <FormGroup title={questionGroup.title}>{this.renderGroup(questionGroup.content)}</FormGroup>
+      }
 
-  getAskCount = (askCount, itemsPerPage) => {
-    const arrAsk = [...Array(askCount).keys()].map(x => ++x);
-    const arrPage = [];
-    let arrPageConvert = arrAsk.map(ask => {
-      arrPage.push({ ask: ask, page: Math.ceil(ask/itemsPerPage) });
-    })
-    return arrPage;
+      return []
   }
 
   render() {
 
-    const { className, questionGroup, asks } = this.props;
-    const { itemsPerPage, showProgress, askCurrent, pageCurrent, pageCount } = this.state;
-    let askCount = Object.keys(this.props.asks).length;
-    const askPageArray = this.getAskCount(askCount, itemsPerPage);
+    const { className, style, itemsPerPage, showProgress, isHorizontal, hideNav } = this.props;
+    let { children } = this.props;
 
+    let questionGroup = this.renderGroup( children );
     return (
-        <Div>
-          {/* { showProgress && itemsPerPage <= askCount ? <ProgressBar progressTotal={pageCount} progressCurrent={pageCurrent} type={1} /> : null } */}
-          <Div>
-  	        {
-              Object.keys(asks).map((ask_code, index) => {
-                return pageCurrent === askPageArray[index].page ? <Input key={index} ask={asks[ask_code]} /> : null;
-              })
-  	        }
-          </Div>
-          <Div>
-              <Button className={`form-nav-prev ${pageCurrent > 1 ? 'visible' : 'hidden' }`} onClick={this.handlePrevPage} >
-                <IconSmall name="chevron_left" />
-              </Button>
-              <Button className={`form-nav-next ${pageCurrent < askCount / itemsPerPage ? 'visible' : 'hidden' }`} onClick={this.handleNextPage} >
-                <IconSmall name="chevron_right" />
-              </Button>
-          </Div>
-        </Div>
+      <div className={`form-container ${isHorizontal ? 'horizontal' : null }`}>
+        <div className="form-main">
+          <div className="form-fields">
+            { !isHorizontal && questionGroup.length > itemsPerPage ?
+              <Pagination perPage={itemsPerPage} hideNav={hideNav}>
+                {questionGroup}
+              </Pagination>
+            : questionGroup }
+          </div>
+        </div>
+      </div>
     );
   }
 }

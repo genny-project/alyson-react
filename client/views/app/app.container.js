@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import App from './App.js';
+import App from './App';
 import { appStart } from 'client/views/actions/app.actions';
 import { authLoggedIn } from 'client/views/actions/keycloak.actions';
 import { bindActionCreators } from 'redux';
@@ -13,4 +13,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps, null, { pure: false })(App);
-

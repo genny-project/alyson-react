@@ -1,37 +1,38 @@
-// import './footer.scss';
+import './footer.scss';
 import React, { Component }  from 'react';
 import { string, any, object } from 'prop-types';
-import { Image } from 'react-native';
-import { ImageView, Label } from '../';
-import {Div} from 'nativeAndWeb/native-code/components/native-components';
+import { ImageView, CompactList } from '../';
 
 class Footer extends Component {
   static defaultProps = {
     className: '',
-    style: object,
+    
   }
 
   static propTypes = {
     className: string,
+    style: object,
   }
 
   render() {
-    const { className, version, poweredBy, style } = this.props;
+    const { className, version, poweredBy, style, } = this.props;
 
     const componentStyle = {
       ...style,
     };
 
     return (
-      	<Div>
+      	<div className="footer" style={componentStyle}>
+          {/* <CompactList/> */}
+          { version ? <span className="version">{version}</span> : null }
       		{ poweredBy ?
-            <Div className="powered-by">
-              <Label>powered by: </Label>
-              { poweredBy.img ? <ImageView source={poweredBy.img} /> : null }
-              { poweredBy.caption ? <Label>{poweredBy.caption}</Label> : null }
-            </Div>
+            <div className="powered-by">
+              <span>powered by: </span>
+              { poweredBy.img ? <ImageView src={poweredBy.img} /> : null }
+              { poweredBy.caption ? <span>{poweredBy.caption}</span> : null }
+            </div>
           : null }
-    	</Div>
+    	</div>
     );
   }
 }

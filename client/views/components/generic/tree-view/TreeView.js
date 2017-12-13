@@ -1,11 +1,13 @@
-// import './treeView.scss';
+import './treeView.scss';
 import React, { Component } from 'react';
 import { object, array, func } from 'prop-types';
 import { IconSmall, SubmitStatusIcon } from '../';
-import {BaseEntity} from 'client/utils/genny';
-import { Div } from 'nativeAndWeb/native-code/components/native-components';
+import { BaseEntity } from '../../../../utils/genny/';
 
+
+import { GennyBridge } from 'utils/genny';
 class TreeView extends Component {
+
   static propTypes = {
     style: object,
     items: array,
@@ -13,70 +15,58 @@ class TreeView extends Component {
   };
 
   onClick = (item) => (event) => {
+
     event.stopPropagation();
     event.preventDefault();
+
     this.props.onClick(item);
     return false;
   }
 
-  sendSelectMsg = (item) => {
+  onExpand = (item) => (event) => {
 
-    this.sendData('TV_SELECT', {
-      code: 'TV1',
-      value: item.code
-    }, item.code);
-    console.log(item.code, 'Log item form sendSelectMsg function');
-  }
+      event.stopPropagation();
+      event.preventDefault();
 
-  sendData = (event, data) => {
-    console.log('send', data);
-    GennyBridge.sendTVEvent(event, data);
+      this.props.onExpand(item);
+      return false;
   }
 
   renderList = (items) => {
+
     let layout = [];
     items.map((item, i) => {
-      if (item.children && item.open) {
+
+        let canOpen = item.children && item.open;
         layout.push(
-          <Div key={i}>
-            <Div>
-              <Div onClick={() => { this.sendSelectMsg(item); }}>
-                { item.icon ? <IconSmall name={item.icon} /> : null }
-                {item.name}
-              </Div>
-              <IconSmall onClick={this.onClick(item)} name="expand_more" />
-            </Div>
-            <Div className="child" style={{ marginLeft: 10 }}>
-              {item.children.length ? this.renderList(item.children) : <SubmitStatusIcon status="sending" />}
-            </Div>
-          </Div>);
-      }
-      else {
-        layout.push(
-          <Div key={i}>
-            <Div>
-              <Div onClick={() => { this.sendSelectMsg(item); }}>
-                { item.icon ? <IconSmall name={item.icon} /> : null }
-                {item && item.name}{console.log(item, 'item.sendSelectMsg from chevron right')}
-              </Div>
-              <IconSmall onClick={this.onClick(item)} name="chevron_right" />
-            </Div>
-          </Div>);
-      }
+            <li key={i}>
+              <div>
+                <span className={canOpen ? 'clickable' : ''} onClick={this.onClick(item)}>
+                  { item.icon ? <IconSmall name={item.icon} onClick={this.onExpand(item)} /> : null }
+                  {item.name}
+                </span>
+                <IconSmall className='clickable' onClick={this.onExpand(item)} name={canOpen ? "expand_more" : 'chevron_right'} />
+              </div>
+              <ul className="child">
+                {canOpen ? this.renderList(item.children) : []}
+              </ul>
+            </li>
+        )
     });
+
     return layout;
   }
-
 
   render() {
 
     const { items, baseEntity } = this.props;
 
     return (
-      <Div className="treeview">
-        <Div className="parent">
-        </Div>
-      </Div>
+      <div className="treeview">
+        <ul className="parent">
+          {this.renderList(items)}
+        </ul>
+      </div>
     );
   }
 }

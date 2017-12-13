@@ -1,6 +1,6 @@
-import { DATA_MSG, CMD_MSG, EVT_MSG } from '../../../constants';
+import { DATA_MSG, CMD_MSG, EVT_MSG } from 'client/constants';
 import events from '../vertx-events';
-import store from '../../../views/store';
+import store from 'client/views/store';
 
 class MessageHandler {
 

@@ -8,7 +8,7 @@ import {
 import { Provider } from 'react-redux';
 import { StackNavigator } from 'react-navigation';
 import { Home } from './native-code/screen';
-import store from 'client/views/store';
+import store from './client/views/store';
 
 export default class App extends Component {
 

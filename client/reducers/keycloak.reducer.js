@@ -4,7 +4,7 @@ import {
   RECEIVE_KEYCLOAK_CONFIG,
   LOGOUT,
   ACCOUNTS
-} from '../constants';
+} from 'client/constants';
 
 const initialState = {
     authenticated: false,

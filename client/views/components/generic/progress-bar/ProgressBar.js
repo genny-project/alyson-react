@@ -1,4 +1,4 @@
-// import './progressBar.scss';
+import './progressBar.scss';
 import React, { Component } from 'react';
 import { string, array, number } from 'prop-types';
 import { IconSmall } from '../';

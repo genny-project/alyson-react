@@ -1,8 +1,9 @@
+import './notifications.scss';
 import React, { Component } from 'react';
 import { string, int, object } from 'prop-types';
 import { IconSmall, Dropdown, NotificationItem } from '../';
-import { Div, Span } from 'nativeAndWeb/native-code/components/native-components';
-
+import Input from '../input';
+import { GennyForm } from '../../genny';
 class Notifications extends Component {
 
   static defaultProps = {
@@ -16,35 +17,33 @@ class Notifications extends Component {
   }
 
   state = {
-    isVisible: false
   }
 
-  handleClickNotifs = () => {
-    this.setState(prevState => ({
-      isVisible: !prevState.isVisible
-    }));
+  getDropdownHeader = () => {
+    const {notifications} = this.props;
+    return (
+      <div>
+        <IconSmall name="forum"/>
+        <div className="number" ><span>{Object.keys(notifications).length}</span></div>
+      </div>
+    );
   }
 
   render() {
 
     const { className, notifications } = this.props;
-    const { isVisible } = this.state;
 
-    return (
-      <Div className="notifications" onClick={this.handleClickNotifs}>
-        <IconSmall name="forum"/>
-        <Div className="number" >{Object.keys(notifications).length}</Div>
-        <Dropdown visible={isVisible}>
-          <Div className="notifications-dropdown">
-      	        {
-                    Object.keys(notifications).map((notification_key, index) => {
-                        return <NotificationItem notification={notifications[notification_key]} />
-                    })
-      	        }
-          </Div>
+    const dropdownHeader = this.getDropdownHeader();
+    return <div className="notifications" onClick={this.handleClickNotifs}>
+        <Dropdown header={dropdownHeader} className="notification-area">
+          <ul className="notifications-dropdown">
+            {Object.keys(notifications).map((notification_key, index) => {
+              return <NotificationItem notification={notifications[notification_key]} />;
+            })}
+          </ul>
+          <GennyForm name="Hello"/>
         </Dropdown>
-    </Div>
-    )
+      </div>;
   }
 }
 

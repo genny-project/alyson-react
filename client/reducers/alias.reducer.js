@@ -1,4 +1,4 @@
-import { ALIAS } from '../constants';
+import { ALIAS } from 'client/constants';
 
 const initialState = {
     data: {},
@@ -20,7 +20,7 @@ export default function reducer(state = initialState, action) {
                         ...existing[alias.code],
                         ...alias
                     };
-                    
+
                     return existing;
 
                 }, {}),

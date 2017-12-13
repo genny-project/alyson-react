@@ -1,1 +1,1 @@
-export { default } from './ImageView.js';
+export { default } from './ImageView';

@@ -2,31 +2,80 @@ import React, { Component } from 'react';
 import { object } from 'prop-types';
 import LayoutNotFound from './layout-not-found';
 import components from './components';
-import { JSONLoader } from '@genny-project/layson';
+import { JSONLoader } from '@genny-project/layson/src';
+import { BaseEntityQuery } from 'client/utils/genny';
 
 class LayoutLoader extends Component {
 
   static propTypes = {
-    layouts: object,
+    layout: object,
     baseEntity: object,
   };
 
+  getLayoutValues(layout) {
+
+      let layoutValues = [];
+      if(layout instanceof Object) {
+          Object.keys(layout).forEach(key => {
+
+              let results = this.getLayoutValues(layout[key]);
+              if(results instanceof Array) {
+                  results.forEach(result => {
+                     layoutValues.push(result);
+                  });
+              }
+              else {
+                  layoutValues.push(results);
+              }
+          });
+      }
+      else if (layout instanceof Array) {
+          layout.forEach(value => {
+              let results = this.getLayoutValues(value);
+              if(results instanceof Array) {
+                  results.forEach(result => {
+                     layoutValues.push(result);
+                  });
+              }
+              else {
+                  layoutValues.push(results);
+              }
+          });
+      }
+      else if (typeof layout == "string") {
+          return [layout];
+      }
+
+      return layoutValues;
+  }
+
+  replaceAliasesIn(layout) {
+
+      let aliases = this.getLayoutValues(layout);
+      aliases.forEach(alias => {
+
+         // step1: check if string has format: "ALIAS.ATTRIBUTE"
+         let split = alias.split(".");
+         if(split.length == 2) {
+
+            let alias_code = split[0];
+            let attribute_code = split[1];
+            let attribute = BaseEntityQuery.getAliasAttribute(alias_code, attribute_code) || BaseEntityQuery.getBaseEntityAttribute(alias_code, attribute_code);
+            if(attribute && attribute.value) {
+                layout = JSON.parse(JSON.stringify(layout).replace(alias, attribute.value));
+            }
+         }
+      });
+
+      return layout;
+  }
+
   render() {
-    const { layouts, baseEntity } = this.props;
 
-    /* Get the current layout */
-    const { current, loaded } = layouts;
+    const { layout, baseEntity, screenSize } = this.props;
 
-    /* If the current layout is null or this layout hasn't been loaded display a LayoutNotFound page */
-    if ( !current ) {
-      return null;
-    }
-
-    if ( loaded[current] == null ) {
-      return <LayoutNotFound layout={current} />;
-    }
-
-    return <JSONLoader layout={loaded[current]} componentCollection={components} context={baseEntity.data} />;
+    let finalLayout = this.replaceAliasesIn(layout);
+    return <JSONLoader layout={finalLayout} componentCollection={components} context={baseEntity.data} screenSize={screenSize} />;
   }
 }
 

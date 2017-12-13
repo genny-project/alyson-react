@@ -1,19 +1,23 @@
 import React from 'react';
 import { string } from 'prop-types';
-import { Div, Span } from 'nativeAndWeb/native-code/components/native-components';
-import { Text } from 'react-native';
+import './label.scss';
 
 Label.propTypes = {
+  className: string,
   text: string
 };
 
 Label.defaultProps = {
-  text: 'Label Example'
+  text: ''
 };
 
 function Label(props) {
   return (
-    <Text>{props.text}</Text>
+    <div className={`label ${props.className || ''}`}>
+      <span className="label-text" onClick={props.onClick}>
+        {props.text}
+      </span>
+    </div>
   );
 }
 

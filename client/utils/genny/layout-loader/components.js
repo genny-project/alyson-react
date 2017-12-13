@@ -1,7 +1,25 @@
-
-import { Grid, Repeater, ComponentCollection } from '@genny-project/layson';
-import { BucketView, Sidebar, ImageView, TreeView, GennyTreeView, GennyImageView, GennyNotification, Header, Footer, Card, AppHolder, GennyForm, GennyTable } from 'client/views/components';
-import { Div } from 'nativeAndWeb/native-code/components/native-components';
+import { Grid, Repeater, ComponentCollection } from '@genny-project/layson/src';
+import {
+  BucketView,
+  Sidebar,
+  ImageView,
+  TreeView,
+  IconSmall,
+  GennyTreeView,
+  GennyImageView,
+  GennyBucketView,
+  GennyNotification,
+  GennyHeader,
+  Header,
+  Footer,
+  Card,
+  AppHolder,
+  GennyForm,
+  GennyTable,
+  GennyList,
+  GennyButton,
+  AppContent,
+} from 'client/views/components';
 
 export default new ComponentCollection({
   Grid,
@@ -13,11 +31,16 @@ export default new ComponentCollection({
   Card,
   GennyTreeView,
   GennyImageView,
+  GennyHeader,
   Header,
   Footer,
   AppHolder,
   GennyForm,
   GennyNotification,
   GennyTable,
-  Div
+  GennyBucketView,
+  IconSmall,
+  GennyList,
+  GennyButton,
+  AppContent,
 });

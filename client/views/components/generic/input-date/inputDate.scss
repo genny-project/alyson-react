@@ -1,0 +1,28 @@
+@import '../../../../styles/colors';
+
+.input-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .input-date-label {
+        margin-right: 10px;
+    }
+    .input-date-dropdown {
+        flex-grow: 1;
+
+        &:not(:last-child) {
+            margin-right: 10px;
+        }
+    }
+
+    &.success > .input-date-dropdown > .dropdown-container > .input-dropdown-button{
+    	color: $success;
+	    border: 1px solid $success;
+    }
+
+    &.error > .input-date-dropdown > .dropdown-container > .input-dropdown-button{
+    	color: $error;
+	    border: 1px solid $error;
+    }
+}

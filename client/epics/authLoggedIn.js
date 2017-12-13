@@ -1,7 +1,8 @@
+import { AUTH_LOGGED_IN, BRIDGE_SENT_AUTH_INIT } from 'client/constants/';
+import { GennyBridge } from 'client/utils/genny';
+import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/mapTo';
-import { AUTH_LOGGED_IN, BRIDGE_SENT_AUTH_INIT } from '../constants/';
-import { GennyBridge } from '../utils/genny';
 
 const authLoggedIn = action$ => {
   return action$

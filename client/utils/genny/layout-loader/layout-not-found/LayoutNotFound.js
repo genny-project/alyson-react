@@ -6,7 +6,12 @@ class LayoutNotFound extends Component {
     const { layout } = this.props;
 
     return (
-     <Div>Loading...</Div>
+      <div className="layout-not-found">
+        <i className="material-icons">error</i>
+        <h1>Whoops!</h1>
+        <h2>Layout not found</h2>
+        <p><b>Layout:</b> {layout}</p>
+      </div>
     );
   }
 }

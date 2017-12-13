@@ -4,7 +4,7 @@ import GennyForm from './GennyForm.js';
 function mapStateToProps(state) {
   return {
       baseEntity: state.baseEntity,
-      ask: state.ask
+      asks: state.ask.data
   }
 }
 
