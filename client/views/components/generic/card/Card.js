@@ -2,6 +2,8 @@ import './card.scss';
 import React, { Component } from 'react';
 import { string, bool, array, number } from 'prop-types';
 import { Button, IconSmall, ProgressBar, Status, Dropdown } from '../';
+import { Div, Span, Ul, Li } from "react-tags-html";
+
 
 class Card extends Component {
 
@@ -98,10 +100,10 @@ class Card extends Component {
     };
 
     return (
-      <div className={`card ${className} clickable ${isShowingOptions ? 'showOptions' : ''}`} style={componentStyle} onClick={() => this.props.onClick(this)} >
-        <div className="card-top">
+      <Div className={`card ${className} clickable ${isShowingOptions ? 'showOptions' : ''}`} style={componentStyle} onClick={() => this.props.onClick(this)} >
+        <Div className="card-top">
             {
-                window.getScreenSize() == "sm" ? <IconSmall name="more_vert" onClick={this.toggleOptions} /> : null
+                window.getScreenSize() == "sm" ? <Span onClick={this.toggleOptions} > icon more_vert</Span> : null
             }
             {
                 isShowingOptions ?
@@ -111,10 +113,10 @@ class Card extends Component {
                     contentStyle={dropDownContentStyle}
                     open={true}
                     >
-                    <ul className="card-options">
-                      <li onClick={this.moveItem}>Move</li>
-                      <li onClick={this.toggleOptions}>Cancel</li>
-                    </ul>
+                    <Ul className="card-options">
+                      <Li onClick={this.moveItem}>Move</Li>
+                      <Li onClick={this.toggleOptions}>Cancel</Li>
+                    </Ul>
                 </Dropdown> : null
             }
           <div className="card-image">
