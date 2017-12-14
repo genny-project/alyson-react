@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { SocialButton } from '../../';
+import { SocialButton } from 'client/views/components';
 import { object, array, any, string } from 'prop-types';
-import { GennyBridge } from 'utils/genny';
+import { GennyBridge } from 'client/utils/genny';
+import { Div } from 'react-tags-html';
 
 class GennySocialButton extends Component {
 

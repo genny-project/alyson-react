@@ -1,7 +1,8 @@
-import './template.scss';
+// import './template.scss';
 import React, { Component } from 'react';
 import { string, object, any } from 'prop-types';
 import {  } from '../';
+import {Div} from 'react-tags-html';
 
 class Template extends Component {
 
@@ -24,9 +25,9 @@ class Template extends Component {
     const componentStyle = { ...style, };
 
     return (
-      <div className={`template ${className}`}>
+      <Div className={`template ${className}`}>
         {children}
-      </div>
+      </Div>
     );
   }
 }
