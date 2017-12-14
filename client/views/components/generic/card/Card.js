@@ -127,12 +127,12 @@ class Card extends Component {
             <Span>{description}</Span>
             <Div className="card-toggle" >
             <Span onClick={this.handleClick}> icon collapseArrow</Span>
-            </div>
-          </div>
+            </Div>
+          </Div>
           <Status className="card-status" color="ff0000"/>
-        </div>
+        </Div>
           {cardContent}
-      </div>
+      </Div>
     );
   }
 }
