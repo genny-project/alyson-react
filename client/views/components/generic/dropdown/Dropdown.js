@@ -1,4 +1,4 @@
-import './dropdown.scss';
+// import './dropdown.scss';
 import React, { Component } from 'react';
 import { string, any, bool, element } from 'prop-types';
 
@@ -21,7 +21,7 @@ class Dropdown extends Component {
   state = {
     isOpen: false
   }
-  
+
   handleBlur = () => {
     this.setState({
       isOpen: false,
@@ -34,8 +34,8 @@ class Dropdown extends Component {
     this.setState({ isOpen: !this.state.isOpen});
   }
 
- 
- 
+
+
 
   render() {
     const { className, children, style, contentStyle, tagStyle, header, open, noDropdownStyle, showTag,dropType } = this.props;

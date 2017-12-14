@@ -1,5 +1,5 @@
-import './inputDatePicker.scss';
-import 'react-datepicker/dist/react-datepicker.css';
+// import './inputDatePicker.scss';
+// import 'react-datepicker/dist/react-datepicker.css';
 
 import React, { Component } from 'react';
 import { string, object, any, func } from 'prop-types';

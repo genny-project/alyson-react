@@ -1,4 +1,4 @@
-import './inputDate.scss';
+// import './inputDate.scss';
 import React, { Component } from 'react';
 import { string, object, any } from 'prop-types';
 import { Label, InputDropdown } from '../';
@@ -49,7 +49,7 @@ class InputDate extends Component {
     ///console.log(validationList);
 
     const { day, month, year } = this.state;
-  
+
     if (day && month && year) {
       //TODO load date format from ask
       const newDate = day + "/" + month + "/" + year;
@@ -90,7 +90,7 @@ class InputDate extends Component {
  	  const { className, style, items, name, } = this.props;
     const { day, month, year, validationStatus } = this.state;
     const componentStyle = { ...style, };
-    
+
 
     return (
       <div className={`input-date ${className} ${validationStatus}`}>

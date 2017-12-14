@@ -1,4 +1,4 @@
-import './pagination.scss';
+// import './pagination.scss';
 import React, { Component } from 'react';
 import { string, object, number, bool } from 'prop-types';
 import ReactPaginate from 'react-paginate';
@@ -55,7 +55,7 @@ class Pagination extends Component {
         <div className='pagination-content'>
           {childrenPageArray}
         </div>
-        <ReactPaginate 
+        <ReactPaginate
           pageCount={this.state.pageCount}
           marginPagesDisplayed={0}
           pageRangeDisplayed={3}

@@ -1,4 +1,4 @@
-import './list.scss';
+// import './list.scss';
 import React, { Component } from 'react';
 import { Pagination, ListItem } from '../';
 import { string, bool, number} from 'prop-types';
@@ -34,13 +34,13 @@ class List extends Component {
   }
 
   render() {
-  
+
     const { className, style, children, itemsPerPage, header, hideNav } = this.props;
     const { } = this.state;
     const componentStyle = { ...style, };
 
     //console.log(children);
-    
+
     const renderMain = this.renderMain(children, itemsPerPage, hideNav);
 
     //console.log(renderMain);

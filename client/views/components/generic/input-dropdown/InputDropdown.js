@@ -1,4 +1,4 @@
-import './inputDropdown.scss';
+// import './inputDropdown.scss';
 import React, { Component } from 'react';
 import { string, object, func, any } from 'prop-types';
 import Downshift from 'downshift'
@@ -74,7 +74,7 @@ class InputDropdown extends Component {
                       {...getItemProps({item})}
                       key={item}
                       className="dropdown-item"
-                      style={{cursor: 'pointer'}}    
+                      style={{cursor: 'pointer'}}
                     >
                       <span>{item}</span>
                     </li>

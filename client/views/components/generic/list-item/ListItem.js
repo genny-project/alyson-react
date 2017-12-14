@@ -1,4 +1,4 @@
-import './listItem.scss';
+// import './listItem.scss';
 import React, { Component } from 'react';
 import { string, object, any } from 'prop-types';
 import { } from '../';

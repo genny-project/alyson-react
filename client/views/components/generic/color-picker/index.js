@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
-import ColorPicker from './ColorPicker';
+const ColorPicker = null;
 
 function mapStateToProps(state) {
   return { layouts: state.layouts }
 }
 
-export default connect( mapStateToProps, null )( ColorPicker );
+export default ColorPicker ? connect( mapStateToProps, null )( ColorPicker ) : null;

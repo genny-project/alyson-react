@@ -1,10 +1,10 @@
-import './button.scss';
+// import './button.scss';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { string, any, func } from 'prop-types';
 
 class Button extends Component {
-  
+
   static defaultProps = {
     className: '',
     href: '',
@@ -22,7 +22,7 @@ class Button extends Component {
 
   getClickFunction = () => {
     const { onClick, handleClick } = this.props;
-    
+
     if (handleClick) {
       return handleClick
     } else {

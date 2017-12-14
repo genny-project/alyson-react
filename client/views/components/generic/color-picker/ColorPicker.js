@@ -1,4 +1,4 @@
-import './colorPicker.scss';
+// import './colorPicker.scss';
 import React, { Component } from 'react';
 import { string } from 'prop-types';
 import { CircleButton, } from '../';
@@ -21,7 +21,7 @@ class ColorPicker extends Component {
     }
   }
 
-  toggleColorPicker = () => { 
+  toggleColorPicker = () => {
     this.setState({
         showColorPicker: !this.state.showColorPicker
       });

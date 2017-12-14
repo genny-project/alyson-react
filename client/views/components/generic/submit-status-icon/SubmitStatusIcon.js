@@ -1,4 +1,4 @@
-import './submitStatusIcon.scss';
+// import './submitStatusIcon.scss';
 import React, { Component } from 'react';
 import { IconSmall } from '../';
 import { string } from 'prop-types';

@@ -1,4 +1,4 @@
-import './inputTextarea.scss';
+// import './inputTextarea.scss';
 import React, { Component } from 'react';
 import { string, bool, func, any } from 'prop-types';
 import { Label, SubmitStatusIcon } from '../';
@@ -64,12 +64,12 @@ class InputTextarea extends Component {
   render() {
     const { className, name, validationStatus } = this.props;
     const { focused, value } = this.state;
-    
-    
+
+
     return (
       <div className={`input-textarea ${className} ${validationStatus}`}>
          {name ? <Label>{name}</Label> : null }
-        <textarea 
+        <textarea
           value={value}
           onChange={this.handleChange}
           onBlur={this.handleBlur}

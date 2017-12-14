@@ -1,4 +1,4 @@
-import './inputTime.scss';
+// import './inputTime.scss';
 import React, { Component } from 'react';
 import { string, object, bool, number } from 'prop-types';
 import { InputDropdown, Label } from '../';
@@ -30,9 +30,9 @@ class InputTime extends Component {
     const format = this.props.isTwentyFourHour ? false : ['AM', 'PM'];
     return format;
   }
-  
+
   getItemsForHours = () => {
-    
+
     let hours = [...Array(this.props.isTwentyFourHour ? 24 : 12).keys()].map(x => this.props.isTwentyFourHour ? x : x + 1).map(String);
     return hours;
   }
@@ -71,7 +71,7 @@ class InputTime extends Component {
     ///console.log(validationList);
 
     const { hour, minute, format } = this.state;
-  
+
     if ( hour && minute && format ) {
       //TODO load date format from ask
       const newDate = hour + ":" + minute + " " + format;
@@ -115,13 +115,13 @@ class InputTime extends Component {
     const itemFormat = this.getItemsForFormat();
     const itemHours = this.getItemsForHours();
     const itemMinutes = this.getItemsForMinutes();
-    
+
     return (
       <div className={`input-time ${className} ${validationStatus}`}>
         {name ? <Label className="input-time-label" text={name} /> : null }
         <InputDropdown {...this.props} items={itemHours}  className="input-time-dropdown hour" name={null} onValidation={this.onDropdownChange} identifier={'hour'} noValidation hint={'hour'}/>
         <InputDropdown {...this.props} items={itemMinutes} className="input-time-dropdown minute" name={null} onValidation={this.onDropdownChange} identifier={'minute'} noValidation hint={'minute'}/>
-        { !isTwentyFourHour ? 
+        { !isTwentyFourHour ?
           <InputDropdown {...this.props} items={itemFormat} className="input-time-dropdown format" name={null} onValidation={this.onDropdownChange} identifier={'format'} noValidation hint={'format'}/>
         : null}
       </div>

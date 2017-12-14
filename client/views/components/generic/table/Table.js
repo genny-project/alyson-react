@@ -1,9 +1,9 @@
-import 'react-table/react-table.css';
-import './table.scss';
+// import 'react-table/react-table.css';
+// import './table.scss';
 import React, { Component } from 'react';
 import { string, array, number, bool, } from 'prop-types';
 import ReactTable from 'react-table';
-import { IconSmall, } from '../../';
+import { IconSmall, } from 'client/views/components';
 
 class Table extends Component {
 
@@ -68,7 +68,7 @@ class Table extends Component {
         defaultPageSize={itemsPerPage}
         className={`table -striped -highlight ${isList ? 'table-list' : null } `}
         showPagination={ data.length > itemsPerPage ? true : false}
-       
+
       />
     );
   }

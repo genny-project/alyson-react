@@ -1,4 +1,4 @@
-import './compactList.scss';
+// import './compactList.scss';
 import React, { Component } from 'react';
 import { List, IconSmall } from '../';
 import { string, array,} from 'prop-types';

@@ -1,9 +1,8 @@
-import './inputUploadPhoto.scss';
+// import './inputUploadPhoto.scss';
 import React, { Component } from 'react';
 import { string, object, any } from 'prop-types';
-import {  } from '../';
 import DropzoneComponent from 'react-dropzone-component';
-import 'react-dropzone-component/styles/filepicker.css';
+// import 'react-dropzone-component/styles/filepicker.css';
 
 class InputUploadPhoto extends Component {
 

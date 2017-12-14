@@ -1,4 +1,4 @@
-import './inputText.scss';
+// import './inputText.scss';
 import React, { Component } from 'react';
 import { string, bool, array, object, int, any, func } from 'prop-types';
 import { Label, SubmitStatusIcon } from '../';

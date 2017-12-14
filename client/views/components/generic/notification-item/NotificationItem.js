@@ -1,7 +1,6 @@
-import './notificationItem.scss';
+// import './notificationItem.scss';
 import React, { Component } from 'react';
 import { string, object, any } from 'prop-types';
-import {  } from '../';
 
 class NotificationItem extends Component {
 

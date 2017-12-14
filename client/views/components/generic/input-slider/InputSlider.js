@@ -1,4 +1,4 @@
-import './inputSlider.scss';
+// import './inputSlider.scss';
 import React, { Component } from 'react';
 import { string, object, any, func, array } from 'prop-types';
 import Slider, { Range } from 'rc-slider';
@@ -33,7 +33,7 @@ class InputSlider extends Component {
     this.setState({ active: true });
     if(validation) {
       clearTimeout(this.state.timer);
-      this.state.timer = setTimeout(function(){  
+      this.state.timer = setTimeout(function(){
         validation(value, identifier, validationList);
         this.setState({
           active: false,

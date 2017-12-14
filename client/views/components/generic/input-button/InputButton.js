@@ -1,10 +1,10 @@
-import './inputButton.scss';
+// import './inputButton.scss';
 import React, { Component } from 'react';
 import { string, func } from 'prop-types';
 import { Button, IconSmall, Label } from '../';
 
 class InputButton extends Component {
-    
+
   static defaultProps = {
     className: '',
     onClick: () => {},

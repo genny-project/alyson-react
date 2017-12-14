@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { string, number, bool } from 'prop-types';
-import './iconsmall.scss';
+// import './iconsmall.scss';
 
 class IconSmall extends Component {
 

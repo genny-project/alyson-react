@@ -1,4 +1,4 @@
-import './inputCheckbox.scss';
+// import './inputCheckbox.scss';
 import React, { Component } from 'react';
 import { string, object, any, bool, func } from 'prop-types';
 import { Label } from '../';
@@ -32,7 +32,7 @@ class InputCheckbox extends Component {
     this.setState(prevState => ({ checked: !prevState.checked }));
     if(validation) {
       clearTimeout(this.state.timer);
-      this.state.timer = setTimeout(function(){  
+      this.state.timer = setTimeout(function(){
         validation(value, identifier, validationList);
       }.bind(this), 1000);
     }

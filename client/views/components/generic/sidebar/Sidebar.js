@@ -1,8 +1,8 @@
-import './sidebar.scss';
+// import './sidebar.scss';
 import React, { Component } from 'react';
 import { ImageView, IconSmall } from '../../../components'
 import { object, bool, string, any } from 'prop-types';
-import { Grid } from '@genny-project/layson';
+import { Grid } from '@genny-project/layson/src';
 
 class Sidebar extends Component {
 
@@ -45,7 +45,7 @@ class Sidebar extends Component {
             />
 
         return (
-                <Grid 
+                <Grid
                     className={`sidebar ${window.getScreenSize()} ${isOpen ? '' : 'closed'}`}
                     style={componentStyle}
                     rows={["200px", "auto"]}

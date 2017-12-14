@@ -1,6 +1,6 @@
-import './form.scss';
+// import './form.scss';
 import React, { Component } from 'react';
-import { ProgressBar, Button, IconSmall, Pagination } from 'views/components';
+import { ProgressBar, Button, IconSmall, Pagination } from 'client/views/components';
 import { string, bool, number} from 'prop-types';
 import { FormGroup } from './form-group';
 

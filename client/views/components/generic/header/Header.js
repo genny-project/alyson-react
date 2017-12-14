@@ -1,4 +1,4 @@
-import './header.scss';
+// import './header.scss';
 import React, { Component } from 'react';
 import { string, object, any } from 'prop-types';
 

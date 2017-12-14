@@ -1,4 +1,4 @@
-import './status.scss';
+// import './status.scss';
 import React, { Component } from 'react';
 import { string, object } from 'prop-types';
 

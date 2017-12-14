@@ -1,4 +1,4 @@
-import './socialButton.scss';
+// import './socialButton.scss';
 import React, { Component } from 'react';
 import { string, object, func, any } from 'prop-types';
 import FacebookButton from './facebook-button';

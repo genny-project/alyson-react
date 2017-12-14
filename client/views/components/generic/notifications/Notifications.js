@@ -1,9 +1,10 @@
-import './notifications.scss';
+// import './notifications.scss';
 import React, { Component } from 'react';
 import { string, int, object } from 'prop-types';
 import { IconSmall, Dropdown, NotificationItem } from '../';
 import Input from '../input';
 import { GennyForm } from '../../genny';
+
 class Notifications extends Component {
 
   static defaultProps = {

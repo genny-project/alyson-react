@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { BucketColumn } from './bucket-column';
-import { Modal, List, Device } from 'views/components';
+import { Modal, List, Device } from 'client/views/components';
 import _ from 'lodash';
 
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import './bucketView.scss';
+// import 'react-responsive-carousel/lib/styles/carousel.min.css';
+// import './bucketView.scss';
 
 class BucketView extends Component {
 
