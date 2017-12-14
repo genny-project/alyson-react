@@ -44,10 +44,10 @@ class Card extends Component {
     const { showProgress, progressCurrent, progressTotal, children } = this.props;
 
     return (
-      <div className={`card-collapse fade fade-${status}`}>
+      <Div className={`card-collapse fade fade-${status}`}>
         {children}
         {showProgress ? <ProgressBar progressTotal={progressTotal} progressCurrent={progressCurrent} type={2} /> : null}
-      </div>
+      </Div>
     );
   }
 
@@ -119,14 +119,14 @@ class Card extends Component {
                     </Ul>
                 </Dropdown> : null
             }
-          <div className="card-image">
+          <Div className="card-image">
               <img />
-          </div>
-          <div className="card-center">
-            <span>{title}</span>
-            <span>{description}</span>
-            <div className="card-toggle" >
-              <IconSmall name={collapseArrow} onClick={this.handleClick}/>
+          </Div>
+          <Div className="card-center">
+            <Span>{title}</Span>
+            <Span>{description}</Span>
+            <Div className="card-toggle" >
+            <Span onClick={this.handleClick}> icon collapseArrow</Span>
             </div>
           </div>
           <Status className="card-status" color="ff0000"/>
