@@ -1,6 +1,7 @@
 const path = require( 'path' );
 const webpack = require( 'webpack' );
 const Dashboard = require( 'webpack-dashboard/plugin' );
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   context: path.resolve( __dirname, './client' ),
@@ -33,9 +34,13 @@ module.exports = {
           'sass-loader',
           'postcss-loader',
         ],
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
       }
     ],
-]
+  ]
   },
   resolve: {
     alias: {
