@@ -82,3 +82,4 @@ module.exports = class TokenStream {
     throw new Error(`Unexpected token type: ${this.node.type}`);
   }
 };
+
