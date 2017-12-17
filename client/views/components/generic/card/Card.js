@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { string, bool, array, number } from 'prop-types';
 import { Button, IconSmall, ProgressBar, Status, Dropdown } from '../';
+import { Div, Span, Ul, Li } from "react-tags-html";
+
 
 class Card extends Component {
 
@@ -42,10 +44,10 @@ class Card extends Component {
     const { showProgress, progressCurrent, progressTotal, children } = this.props;
 
     return (
-      <div className={`card-collapse fade fade-${status}`}>
+      <Div className={`card-collapse fade fade-${status}`}>
         {children}
         {showProgress ? <ProgressBar progressTotal={progressTotal} progressCurrent={progressCurrent} type={2} /> : null}
-      </div>
+      </Div>
     );
   }
 
@@ -98,10 +100,10 @@ class Card extends Component {
     };
 
     return (
-      <div className={`card ${className} clickable ${isShowingOptions ? 'showOptions' : ''}`} style={componentStyle} onClick={() => this.props.onClick(this)} >
-        <div className="card-top">
+      <Div className={`card ${className} clickable ${isShowingOptions ? 'showOptions' : ''}`} style={componentStyle} onClick={() => this.props.onClick(this)} >
+        <Div className="card-top">
             {
-                window.getScreenSize() == "sm" ? <IconSmall name="more_vert" onClick={this.toggleOptions} /> : null
+                window.getScreenSize() == "sm" ? <Span onClick={this.toggleOptions} > icon more_vert</Span> : null
             }
             {
                 isShowingOptions ?
@@ -111,26 +113,26 @@ class Card extends Component {
                     contentStyle={dropDownContentStyle}
                     open={true}
                     >
-                    <ul className="card-options">
-                      <li onClick={this.moveItem}>Move</li>
-                      <li onClick={this.toggleOptions}>Cancel</li>
-                    </ul>
+                    <Ul className="card-options">
+                      <Li onClick={this.moveItem}>Move</Li>
+                      <Li onClick={this.toggleOptions}>Cancel</Li>
+                    </Ul>
                 </Dropdown> : null
             }
-          <div className="card-image">
+          <Div className="card-image">
               <img />
-          </div>
-          <div className="card-center">
-            <span>{title}</span>
-            <span>{description}</span>
-            <div className="card-toggle" >
-              <IconSmall name={collapseArrow} onClick={this.handleClick}/>
-            </div>
-          </div>
+          </Div>
+          <Div className="card-center">
+            <Span>{title}</Span>
+            <Span>{description}</Span>
+            <Div className="card-toggle" >
+            <Span onClick={this.handleClick}> icon collapseArrow</Span>
+            </Div>
+          </Div>
           <Status className="card-status" color="ff0000"/>
-        </div>
+        </Div>
           {cardContent}
-      </div>
+      </Div>
     );
   }
 }

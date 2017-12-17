@@ -1,7 +1,7 @@
 // import './status.scss';
 import React, { Component } from 'react';
 import { string, object } from 'prop-types';
-
+import {Div} from 'react-tags-html';
 class Status extends Component {
 
     static defaultProps = {
@@ -21,7 +21,6 @@ class Status extends Component {
     }
 
     getRenderState = () => {
-
         switch(this.props.color) {
             case "success":
             case "warning":
@@ -35,14 +34,12 @@ class Status extends Component {
     }
 
     render() {
-
         const { className, style, color } = this.props;
         const { statusColor, statusClass } = this.state;
         let renderState = this.getRenderState();
         const componentStyle = { ...style, ...renderState.statusColor };
-
         return (
-            <div className={`status ${className} ${renderState.statusClass}`} style={{componentStyle}}/>
+            <Div className={`status ${className} ${renderState.statusClass}`} style={{componentStyle}}/>
         );
     }
 }

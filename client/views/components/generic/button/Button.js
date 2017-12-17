@@ -2,7 +2,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { string, any, func } from 'prop-types';
-
+import {Div, Button} from 'react-tags-html';
+const ButtonNative = Button;
+let Button = undefined;
 class Button extends Component {
 
   static defaultProps = {
@@ -37,14 +39,12 @@ class Button extends Component {
     const clickFunc = this.getClickFunction();
 
     const btn = (
-      <div className={`button ${className} ${type}`} style={componentStyle}>
-        <button onClick={clickFunc} style={{backgroundColor: color}}>{children}</button>
-      </div>
+      <Div className={`button ${className} ${type}`} style={componentStyle}>
+        <ButtonNative onClick={clickFunc} style={{backgroundColor: color}}>{children}</ButtonNative>
+      </Div>
     );
 
-    return href
-      ? <Link to={href}>{btn}</Link>
-      : btn;
+    return btn;
   }
 }
 

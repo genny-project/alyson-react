@@ -1,8 +1,8 @@
-import './gennyButton.scss';
+// import './gennyButton.scss';
 import React, { Component } from 'react';
 import { string } from 'prop-types';
 import { Button } from '../../';
-import { GennyBridge } from 'utils/genny';
+import { GennyBridge } from 'client/utils/genny';
 
 class GennyButton extends Component {
 

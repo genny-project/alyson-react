@@ -1,9 +1,8 @@
-import './gennyForm.scss';
+// import './gennyForm.scss';
 import React, { Component } from 'react';
 import { Form, Input } from '../../';
 import { object, array } from 'prop-types';
-import { AskQuery, BaseEntityQuery, GennyBridge } from 'utils/genny';
-import { log } from 'util';
+import { AskQuery, BaseEntityQuery, GennyBridge } from 'client/utils/genny';
 
 class GennyForm extends Component {
 

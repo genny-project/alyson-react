@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { string, object } from 'prop-types';
 import { IconSmall } from '../';
-import { Div, Li, Ul, Span } from 'react-tags-html';
+import { Div, Li, Ul, Span } from 'react-tags-html/src';
 
 class Breadcrumbs extends Component {
 

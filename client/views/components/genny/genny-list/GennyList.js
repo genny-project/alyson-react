@@ -1,9 +1,9 @@
-import './gennyList.scss';
+// import './gennyList.scss';
 import React, { Component } from 'react';
 import { object, string } from 'prop-types';
 import { List, GennyForm, ListItem } from '../../';
-import { BaseEntityQuery } from 'utils/genny';
-import { LayoutLoader } from 'utils/genny/layout-loader';
+import { BaseEntityQuery } from 'client/utils/genny';
+import { LayoutLoader } from 'client/utils/genny/layout-loader';
 
 class GennyList extends Component {
 
@@ -22,14 +22,14 @@ class GennyList extends Component {
     generateListItems(items) {
 
         let children = [];
-        
+
         items.map(item => {
 
             console.log('item', item);
 
             //let layout_code = (item.attributes["PRI_LAYOUT"] ? item.attributes["PRI_LAYOUT"].value : null);
             let layout_code = 'listLayout';
-            let sublayout = this.props.sublayout[layout_code]; 
+            let sublayout = this.props.sublayout[layout_code];
 
             children.push(
                 <ListItem>
@@ -40,7 +40,7 @@ class GennyList extends Component {
             );
         });
         return children
-    }  
+    }
 
     render() {
 

@@ -1,8 +1,8 @@
-import './appContent.scss';
+// import './appContent.scss';
 import React, { Component } from 'react';
 import { GennyBucketView, GennyForm, GennyTable, GennyList } from '../../';
 import { any } from 'prop-types';
-import { LayoutLoader } from 'utils/genny/layout-loader';
+import { LayoutLoader } from 'client/utils/genny/layout-loader';
 
 class AppContent extends Component {
 

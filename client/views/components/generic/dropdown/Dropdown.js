@@ -1,6 +1,7 @@
 // import './dropdown.scss';
 import React, { Component } from 'react';
 import { string, any, bool, element } from 'prop-types';
+import { Div, Span, Ul, Li } from "react-tags-html";
 
 class Dropdown extends Component {
   static defaultProps = {
@@ -44,17 +45,17 @@ class Dropdown extends Component {
     if(open != undefined) isOpen = open; // open props overrides
 
     return (
-      <div className={`dropdown ${className}`} onClick={this.handleClick} onBlur={this.handleBlur}  tabIndex='-1' style={style} >
-        <div className='dropdown-header'>
+      <Div className={`dropdown ${className}`} onClick={this.handleClick} onBlur={this.handleBlur}  tabIndex='-1' style={style} >
+        <Div className='dropdown-header'>
           {header}
-        </div>
+        </Div>
         { isOpen ?
-          <div className={`dropdown-content ${noDropdownStyle ? 'no-style' : null}`} style={contentStyle} >
-            { showTag ? <div className='dropdown-tag' style={tagStyle}></div> : null }
+          <Div className={`dropdown-content ${noDropdownStyle ? 'no-style' : null}`} style={contentStyle} >
+            { showTag ? <Div className='dropdown-tag' style={tagStyle}></Div> : null }
             {children}
-          </div>
+          </Div>
         : null }
-      </div>
+      </Div>
     );
   }
 }
