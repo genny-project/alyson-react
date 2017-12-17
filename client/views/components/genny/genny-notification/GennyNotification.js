@@ -1,6 +1,6 @@
-import './gennyNotification.scss';
+// import './gennyNotification.scss';
 import React, { Component } from 'react';
-import { Notifications } from '../../../components';
+import { Notifications } from 'client/views/components';
 import { string, any, object } from 'prop-types';
 
 class GennyNotification extends Component {

@@ -1,10 +1,10 @@
-import './gennyHeader.scss';
+// import './gennyHeader.scss';
 import React, { Component } from 'react';
-import { Label, Dropdown, ImageView, IconSmall, GennyTreeView, GennyNotification, ColorPicker, Device } from 'views/components';
-import { Grid } from '@genny-project/layson';
+import { Label, Dropdown, ImageView, IconSmall, GennyTreeView, GennyNotification, ColorPicker, Device } from 'client/views/components';
+import { Grid } from '@genny-project/layson/src';
 import { string,object, bool  } from 'prop-types';
-import store from 'views/store';
-import { GennyBridge } from 'utils/genny';
+import store from 'client/views/store';
+import { GennyBridge } from 'client/utils/genny';
 
 class GennyHeader extends Component {
 
@@ -75,8 +75,8 @@ class GennyHeader extends Component {
           <Label text={projectTitle} position={[0,0]} />
           {/*<GennyNotification position={[0,1]} />*/}
           <Device isDesktop position={[0,1]}>
-            <Dropdown 
-              style={{ marginRight: '30px'}} 
+            <Dropdown
+              style={{ marginRight: '30px'}}
               header={
                 <span style={{display: 'flex', alignItems: 'center'}}><Label text={`${userName}`} /><IconSmall name="expand_more" /></span>}
               >
@@ -95,7 +95,7 @@ class GennyHeader extends Component {
             <IconSmall className="help" name="help"/>
             </Device>*/}
         </Grid>
-        { !hideSubheader ? 
+        { !hideSubheader ?
         <Grid className='sub-header' cols={[1]} rows={1}>
           <GennyTreeView isHorizontal={true} style={{ backgroundColor: componentStyle.backgroundColor }} position={[0,0]}/>
         </Grid> : null }

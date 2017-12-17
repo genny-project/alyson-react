@@ -1,7 +1,8 @@
 // import './status.scss';
 import React, { Component } from 'react';
 import { string, object } from 'prop-types';
-import {Div} from 'react-tags-html';
+import {Div} from 'react-tags-html/src';
+
 class Status extends Component {
 
     static defaultProps = {

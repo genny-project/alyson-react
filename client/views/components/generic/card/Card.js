@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { string, bool, array, number } from 'prop-types';
 import { Button, IconSmall, ProgressBar, Status, Dropdown } from '../';
-import { Div, Span, Ul, Li } from "react-tags-html";
+import { Div, Span, Ul, Li } from "react-tags-html/src";
 
 
 class Card extends Component {

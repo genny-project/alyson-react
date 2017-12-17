@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { string, array, number } from 'prop-types';
 import { IconSmall } from '../';
-import { Div, Span } from 'react-tags-html';
+import { Div, Span } from 'react-tags-html/src';
 
 class ProgressBar extends Component {
 

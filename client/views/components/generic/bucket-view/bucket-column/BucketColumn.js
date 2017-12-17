@@ -1,9 +1,9 @@
-import './BucketColumn.scss';
+// import './BucketColumn.scss';
 import React, { Component } from 'react';
 import { string, object, any, bool } from 'prop-types';
 import { BucketElement } from './bucket-element';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
-import { IconSmall } from 'views/components';
+import { IconSmall } from 'client/views/components';
 
 const getListStyle = isDraggingOver => ({
     // background: isDraggingOver ? 'lightblue' : "#a3a3a3",
@@ -44,8 +44,8 @@ class BucketColumn extends Component {
 
         const { className, style, title, items, groupId, canAddItem, goToPreviousBucket, goToNextBucket } = this.props;
         const componentStyle = { ...style, };
-        console.log();
         let titleDiv = null;
+        
         if(window.getScreenSize() == "sm") {
             titleDiv =
             <div>

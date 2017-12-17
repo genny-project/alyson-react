@@ -1,10 +1,10 @@
-import './gennyModal.scss';
+// import './gennyModal.scss';
 import React, { Component } from 'react';
 import { func, string } from 'prop-types';
-import { BaseEntityQuery } from 'utils/genny';
+import { BaseEntityQuery } from 'client/utils/genny';
 import { Modal, } from '../../';
-import { GennyBridge } from 'utils/genny';
-import { LayoutLoader } from 'utils/genny/layout-loader';
+import { GennyBridge } from 'client/utils/genny';
+import { LayoutLoader } from 'client/utils/genny/layout-loader';
 
 class GennyModal extends Component {
 
