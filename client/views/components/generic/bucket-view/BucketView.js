@@ -17,7 +17,7 @@ class BucketView extends Component {
         touch: {}
     }
 
-    getBucketColumnContentNode(bucket) {
+    getBucketColumnContentNode(bucket) {ss
 
         const index_bucket = this.state.buckets.indexOf(bucket);
         const bucketNode = ReactDOM.findDOMNode(this);
@@ -324,14 +324,34 @@ class BucketView extends Component {
     }
 
     bucketSelectionLayout = (item) => {
+         let bucketOptionItem = null;
+         let bucketViewSize = null;
+         let screenSize = "";
+         if (!window) {
+           screenSize = "sm";
+         } else {
+           screenSize = window.getScreenSize();
+         }
+         switch (screenSize) {
+           case "sm":
+             bucketOptionItem = { marginBottom: 15, padding: 15, borderStyle: solid, border: 1, borderColor: "lightgray", cursor: "pointer" };
+             bucketViewSize = { overflowX: "hidden", cursor: "pointer" };
+             break;
 
-        return (
-            <List itemsPerPage={this.state.buckets.length}>
-                {
-                    this.state.buckets.map(bucket => <div className={`bucket-option-item size-${this.props.screenSize}`} onClick={() => this.mobileMoveItem(item, bucket)}>{bucket.title}</div>)
-                }
-            </List>
-        );
+           default:
+             null;
+         }
+
+        return <List itemsPerPage={this.state.buckets.length}>
+            {this.state.buckets.map(bucket => (
+              <div
+                style={{ ...bucketOptionItem, ...bucketViewSize }}
+                onClick={() => this.mobileMoveItem(item, bucket)}
+              >
+                {bucket.title}
+              </div>
+            ))}
+          </List>;
     }
 
     onTouchMove = (e) => {
@@ -363,40 +383,129 @@ class BucketView extends Component {
     }
 
     render() {
+        // CSS JS test Native
+        let screenSize = '';
+        if (!window) {
+            screenSize = 'sm';
+        } else {
+            screenSize = window.getScreenSize();
+        }
+        let bucketViewSize = null;
+        const bucketColumn = {
+            display: 'flex',
+            flexDirection: 'column'
+        };
 
-        const { style } = this.props;
-        const { buckets, currentlySelectedItem } = this.state;
+        const bucketTitle = {
+            flexShrink: 0
+        };
 
-        let columns = buckets.map((bucket, index) =>
+        switch (screenSize) {
+            case 'sm':
+                bucketViewSize = {
+                    overflowX: 'hidden',
+                    cursor: 'pointer'
+                };
+            case 'md':
+                bucketViewSize = {};
 
-            <BucketColumn
-                screenSize={this.props.screenSize}
-                title={bucket.title}
-                key={bucket.id}
-                groupId={bucket.id}
-                items={bucket.children}
-                goToPreviousBucket={ index == 0 ? false : this.goToPreviousBucket}
-                goToNextBucket={ index == buckets.length - 1 ? false : this.goToNextBucket}
-                showMovingOptions={this.toggleMovingOptions}
-                addNewItem={this.addNewItem}
-                canAddItem={bucket.canAddItem}
-                className={(index % 2 == 0) ? '' : 'alt-style'}
-                />
-        )
+            case 'lg':
+                bucketViewSize = {};
 
-        return (
-            <DragDropContext onDragEnd={this.onDragEnd} onDragStart={this.onDragStart}>
-                <div onTouchMove={this.onTouchMove} onTouchEnd={this.onTouchEnd} className={`bucket-view size-${window.getScreenSize()}`}>
-                    <Device isMobile>
-                        <Modal header={<div>Move to</div>} onClose={this.toggleMovingOptions} show={currentlySelectedItem}>
-                            <div>{this.bucketSelectionLayout(currentlySelectedItem)}</div>
-                        </Modal>
-                    </Device>
-                    {columns}
-                </div>
-            </DragDropContext>
-        )
-    }
+            default:
+                {
+                    bucketViewSize = {
+                        overflowX: 'hidden',
+                        cursor: 'pointer'
+                    };
+                }
+        }
+
+        const bucketView = {
+            display: 'flex',
+            flexDirection: 'row',
+            flexGrow: 1,
+            position: 'relative',
+            backgroundColor: '#a3a3a3'
+        };
+
+        const bucketViewDiv = {
+            height: '100%',
+            flexGrow: 1
+        };
+
+        const bucketViewSizeLg = {
+            bucketColumn: {
+                display: 'flex',
+                flexDirection: 'column'
+            },
+            bucketTitle: {
+                flexShrink: 0
+            }
+        };
+
+        const bucketViewSizeSm = {
+            overflowX: 'hidden',
+            cursor: 'pointer'
+        };
+
+        const bucketOptionItemSizeSm = {
+            marginBottom: 15,
+            paddingBottom: 15,
+            border: 1,
+            borderStyle: 'solid',
+            borderColor: 'lightgray',
+            cursor: 'pointer'
+        };
+
+        const altStyle = {
+            background: 'transparent'
+        };
+        /* CSS to Javascript ends */
+
+               const { style } = this.props;
+               const { buckets, currentlySelectedItem } = this.state;
+
+               let columns = buckets.map((bucket, index) => (
+                 <BucketColumn
+                   screenSize={this.props.screenSize}
+                   title={bucket.title}
+                   key={bucket.id}
+                   groupId={bucket.id}
+                   items={bucket.children}
+                   goToPreviousBucket={
+                     index == 0 ? false : this.goToPreviousBucket
+                   }
+                   goToNextBucket={
+                     index == buckets.length - 1
+                       ? false
+                       : this.goToNextBucket
+                   }
+                   showMovingOptions={this.toggleMovingOptions}
+                   addNewItem={this.addNewItem}
+                   canAddItem={bucket.canAddItem}
+                   style={index % 2 === 0 ? null : altStyle}
+                 />
+               ));
+
+               return <DragDropContext onDragEnd={this.onDragEnd} onDragStart={this.onDragStart}>
+                   <div onTouchMove={this.onTouchMove} onTouchEnd={this.onTouchEnd} style={{ ...bucketView, ...bucketViewSize }}>
+                     >
+                     <Device isMobile>
+                       <Modal header={<div>
+                             Move to
+                           </div>} onClose={this.toggleMovingOptions} show={currentlySelectedItem}>
+                         <div>
+                           {this.bucketSelectionLayout(
+                             currentlySelectedItem
+                           )}
+                         </div>
+                       </Modal>
+                     </Device>
+                     {columns}
+                   </div>
+                 </DragDropContext>;
+             }
 }
 
 export default BucketView;
