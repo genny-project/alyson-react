@@ -8,6 +8,7 @@ import _ from 'lodash';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import './bucketView.scss';
 
+
 class BucketView extends Component {
 
     state = {
