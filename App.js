@@ -1,22 +1,21 @@
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
-import { Provider } from 'react-redux';
-import { StackNavigator } from 'react-navigation';
-import { Home } from './native-code/screen';
-import store from './client/views/store';
+import React from 'react';
+import {Provider} from "react-redux";
+import store from "./src/utilities/storage/store";
+import Home from './src/views/';
+import Routing, {Router} from './src/utilities/routing/index';
 
-export default class App extends Component {
+const Route = Routing.Route;
 
-   render() {
-    return (
-      <Provider store={store}>
-        <Home />
-      </Provider>
-    )
-  }
+class App extends React.Component {
+    render() {
+        return (
+            <Provider store={store}>
+                <Router>
+                    <Route path='/' component={Home}/>
+                </Router>
+            </Provider>
+        );
+    }
 }
+
+export default App;

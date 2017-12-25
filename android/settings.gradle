@@ -1,3 +1,3 @@
-rootProject.name = 'nativeAndWeb'
+rootProject.name = 'AlysonReact'
 
 include ':app'
