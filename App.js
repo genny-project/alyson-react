@@ -4,31 +4,30 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
 } from 'react-native';
 
 import {SignedIn, SignedOut } from './native-code/router';
-import {isSignedIn } from './native-code/auth' ; 
 import {createRootNavigator} from './native-code/router';
 
 import {Test} from './native-code/components';
 
 export default class App extends Component {
+
   constructor(props){
     super(props);
     this.state = {
-      signedIn: false, 
+      signedIn: false,
       checkedSignIn: false
     };
   }
 
   componentWillMount() {
-    isSignedIn()
-    .then(res => this.setState({ signedIn: res, checkedSignIn: true }))
-    .catch(err => alert("An error occurred"));
+    this.setState({ signedIn: false, checkedSignIn: true })
   }
 
   render() {
+
     const { checkedSignIn, signedIn } = this.state;
     if (!checkedSignIn) {
       return null;
@@ -45,15 +44,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });

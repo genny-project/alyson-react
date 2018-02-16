@@ -5,44 +5,28 @@ import { onSignOut } from '../auth';
 import { NavigationActions } from 'react-navigation';
 import GeoFencing from '../GeoFencing';
 
+var self = null;
 class Keycloak extends Component {
 
-    static navigationOptions = ({ navigation }) => ({
+    static navigationOptions = ({navigation}) => ({
         title: '',
-        headerTintColor: 'orange',
-        headerStyle: { backgroundColor: 'white' },
-        headerLeft: (
-            <Button
-                title='Home'
-                onPress={() => {
-                    const route = (Platform.OS === 'ios') ? 'iOSScanner' : 'AndroidScanner'
-                    // const { navigate } = navigation
-                    // navigate(route);
-                    onSignOut().then(() => console.log( "User Signed Out" ));
-                }
-            }/>
-        )
-    });
-
-    static navigationOptions = ({ navigation }) => ({
-        title: '',
-        headerTintColor: 'orange',
         headerStyle: { backgroundColor: 'white' },
         headerRight: (
             <Button
-                title="Logout"
+                title='Refresh'
                 onPress={() => {
-                    onSignOut().then(()=> navigation.navigate("Home"));
-                }
-            } />
+                    if(self) {
+                        self.reloadWebView();
+                    }
+                }}
+            />
         )
     });
 
     state = {
-        initialPosition: 'unknown',
-        lastPosition: 'unknown',
+        initialPosition: null,
+        lastPosition: null,
         destinations: [],
-        fakeGPSCounter: 0,
     }
 
     watchGPS() {
@@ -52,50 +36,61 @@ class Keycloak extends Component {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
 
-                    var lastPosition = JSON.stringify(position);
-                    this.setState({lastPosition});
+                    // we check if we moved enough before telling BE
+                    var newPosition = JSON.stringify(position);
+                    var lastPosition = this.state.lastPosition ? JSON.parse(this.state.lastPosition) : null;
+
+                    if(lastPosition == null) {
+
+                        lastPosition = {
+                            coords: {
+                                latitude: 0,
+                                longitude: 0
+                            }
+                        }
+                    }
+
+                    this.setState({
+                        lastPosition: newPosition
+                    });
 
                     if(position && position.coords) {
 
-                        this.state.destinations.forEach(destination => {
+                        this.sendDataToWeb('GPS_UPDATE', [position]);
 
-                            console.log(this.state.fakeGPSCounter);
-                            console.log(destination);
+                        this.state.destinations.forEach(destination => {
 
                             GeoFencing.containsLocation({
                                 x: position.coords.latitude,
-                                y: position.coords.lontitude,
-                            }, destination.center, destination.radius)
+                                y: position.coords.longitude,
+                            },
+                            {
+                                x: destination.latitude,
+                                y: destination.longitude
+                            },  destination.radius)
                             .then(() => {
 
-                                if(destination.status == "out" && this.state.fakeGPSCounter == 5) {
+                                if(destination.status == "out") {
                                     this.onEnterGPSCircle(destination)
                                 }
                             })
                             .catch(() => {
 
-                                if(destination.status == "in" && this.state.fakeGPSCounter == 2) {
+                                if(destination.status == "in") {
                                     this.onExitGPSCircle(destination)
                                 }
-                                else if(destination.status == "out" && this.state.fakeGPSCounter == 5) {
-                                    this.onEnterGPSCircle(destination)
-                                }
-
-                                this.state.fakeGPSCounter += 1;
                             })
                         });
                     }
                 },
                 (error) => console.log(error.message),
-                {enableHighAccuracy: true, timeout: 20000, maximumAge: 1000}
+                {enableHighAccuracy: true, timeout: 20000}
             );
-        }, 5000);
+        }, 10000);
     }
 
     onExitGPSCircle = (destination) => {
 
-        console.log("did exit destination: ");
-        console.log(destination);
         this.state.destinations.filter(x => x.latitude == destination.latitude && x.longitude == destination.longitude)[0].status = "out";
         this.sendDataToWeb("GEOFENCE", {
             value: "GEOFENCE_EXIT",
@@ -105,13 +100,12 @@ class Keycloak extends Component {
 
     onEnterGPSCircle = (destination) => {
 
-        console.log("did enter destination: ");
-        console.log(destination);
         this.state.destinations.filter(x => x.latitude == destination.latitude && x.longitude == destination.longitude)[0].status = "in";
         this.sendDataToWeb("GEOFENCE", {
-            value: "GEOFENCE_ENTRY",
+            value: "GEOFENCE_ENTER",
             code: destination.enterCode,
-        })}
+        })
+    }
 
     sendDataToWeb = (event_id, data) => {
 
@@ -133,8 +127,15 @@ class Keycloak extends Component {
         }
     }
 
+    constructor(props) {
+        super(props);
+        self = this;
+    }
+
     componentDidMount() {
+
         this.watchGPS()
+        this.state.refresh = this.reloadWebView;
     }
 
     componentWillUnmount() {
@@ -143,13 +144,26 @@ class Keycloak extends Component {
 
     handleMessage = (message) => {
 
-        console.log("Received [" + message.id + "]")
         switch (message.id) {
             case "GEOFENCE":
-            this.state.destinations = [{
-                ...message.data,
-                status: "in" // default: in the area
-            }];
+
+                let found = false;
+                this.state.destinations.forEach(destination => {
+
+                    if(destination.enterCode == message.data.enterCode) {
+                        destination = {
+                            ...message.data,
+                            status: "out"
+                        };
+                    }
+                });
+
+                if(!found) {
+                    this.state.destinations.push({
+                        ...message.data,
+                        status: "out"
+                    })
+                }
             break;
             default: console.log("Unknown data [" + message.id + "]")
         }
@@ -170,6 +184,10 @@ class Keycloak extends Component {
         }
     }
 
+    reloadWebView = () => {
+        this.webView.reload();
+    }
+
     render() {
 
         const patchPostMessageFunction = function() {
@@ -184,18 +202,18 @@ class Keycloak extends Component {
             };
 
             window.postMessage = patchedPostMessage;
+
         };
 
         const patchPostMessageJsCode = '(' + String(patchPostMessageFunction) + ')();';
 
-        console.log("loading url: https://v2.channel40.com.au");
-
         return (
             <WebView
                 ref={x => {this.webView = x}}
-                source={{ uri: 'http://localhost:3000' }}
+                source={{ uri: 'https://v2.channel40.com.au' }} //http://localhost:3000
                 allowUrlRedirect={true}
                 scalesPageToFit={false}
+                startInLoadingState={true}
                 injectedJavaScript={patchPostMessageJsCode}
                 onMessage={this.onMessage}
                 bounces={false}
