@@ -11,15 +11,33 @@ class Keycloak extends Component {
     static navigationOptions = ({navigation}) => ({
         title: '',
         headerStyle: { backgroundColor: 'white' },
-        headerRight: (
-            <Button
-                title='Refresh'
+        // headerRight: (
+        //     <Button
+        //         title='Refresh'
+        //         onPress={() => {
+        //             if(self) {
+        //                 self.reloadWebView();
+        //             }
+        //         }}
+        //     />
+        // )
+        headerLeft: (
+            <TouchableHighlight
+                //style={{backgroundColor: 'black'}}
                 onPress={() => {
                     if(self) {
                         self.reloadWebView();
                     }
                 }}
-            />
+            >
+                <Image
+                    style={{width: 36, height: 36}}
+                    // black icon
+                    source={{uri: 'https://i.imgur.com/XPQpQbr.png'}}
+                    // white icon
+                    //source={{uri: 'https://i.imgur.com/SnyaHwg.png'}}
+                />
+            </TouchableHighlight>
         )
     });
 
