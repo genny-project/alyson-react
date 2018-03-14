@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, WebView, Button, Platform, TouchableHighlight} from 'react-native'
+import { Text, View, WebView, Button, Platform, TouchableHighlight, Image} from 'react-native'
 import Home from './Home';
 import { onSignOut } from '../auth';
 import { NavigationActions } from 'react-navigation';
